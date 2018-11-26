@@ -7,39 +7,39 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   1 .ARM.exidx    00000008  004089bc  004089bc  000189bc  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .relocate     000009d0  20000000  004089c4  00020000  2**3
+  2 .relocate     000009c8  20000000  004089c4  00020000  2**3
                   CONTENTS, ALLOC, LOAD, CODE
-  3 .bss          0000bfac  200009d0  00409394  000209d0  2**2
+  3 .bss          0000bfb0  200009c8  0040938c  000209c8  2**2
                   ALLOC
-  4 .stack        00003004  2000c97c  00415340  000209d0  2**0
+  4 .stack        00003000  2000c978  0041533c  000209c8  2**0
                   ALLOC
-  5 .ARM.attributes 0000002e  00000000  00000000  000209d0  2**0
+  5 .ARM.attributes 0000002e  00000000  00000000  000209c8  2**0
                   CONTENTS, READONLY
-  6 .comment      00000059  00000000  00000000  000209fe  2**0
+  6 .comment      00000059  00000000  00000000  000209f6  2**0
                   CONTENTS, READONLY
-  7 .debug_info   0002eaf5  00000000  00000000  00020a57  2**0
+  7 .debug_info   0002eb43  00000000  00000000  00020a4f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00005a26  00000000  00000000  0004f54c  2**0
+  8 .debug_abbrev 00005a26  00000000  00000000  0004f592  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_loc    0000b4f2  00000000  00000000  00054f72  2**0
+  9 .debug_loc    0000b4f2  00000000  00000000  00054fb8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_aranges 00001180  00000000  00000000  00060464  2**0
+ 10 .debug_aranges 00001180  00000000  00000000  000604aa  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00001338  00000000  00000000  000615e4  2**0
+ 11 .debug_ranges 00001338  00000000  00000000  0006162a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_macro  0001eb78  00000000  00000000  0006291c  2**0
+ 12 .debug_macro  0001eb78  00000000  00000000  00062962  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_line   00016815  00000000  00000000  00081494  2**0
+ 13 .debug_line   00016815  00000000  00000000  000814da  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    000706c7  00000000  00000000  00097ca9  2**0
+ 14 .debug_str    000706dd  00000000  00000000  00097cef  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_frame  00003a2c  00000000  00000000  00108370  2**2
+ 15 .debug_frame  00003a2c  00000000  00000000  001083cc  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00400000 <exception_table>:
-  400000:	80 f9 00 20 19 07 40 00 15 07 40 00 15 07 40 00     ... ..@...@...@.
+  400000:	78 f9 00 20 19 07 40 00 15 07 40 00 15 07 40 00     x.. ..@...@...@.
   400010:	15 07 40 00 15 07 40 00 15 07 40 00 00 00 00 00     ..@...@...@.....
 	...
   40002c:	b1 2a 40 00 15 07 40 00 00 00 00 00 51 2b 40 00     .*@...@.....Q+@.
@@ -52,7 +52,7 @@ Disassembly of section .text:
   40009c:	15 07 40 00 15 07 40 00 15 07 40 00 15 07 40 00     ..@...@...@...@.
   4000ac:	15 07 40 00 15 07 40 00 15 07 40 00 ed 22 40 00     ..@...@...@.."@.
   4000bc:	01 23 40 00 15 07 40 00 15 07 40 00 15 07 40 00     .#@...@...@...@.
-  4000cc:	15 07 40 00 15 07 40 00 3d 11 40 00 15 07 40 00     ..@...@.=.@...@.
+  4000cc:	15 07 40 00 15 07 40 00 41 11 40 00 15 07 40 00     ..@...@.A.@...@.
   4000dc:	15 07 40 00 15 07 40 00 15 07 40 00 15 07 40 00     ..@...@...@...@.
   4000ec:	15 07 40 00 15 07 40 00 15 07 40 00                 ..@...@...@.
 
@@ -68,7 +68,7 @@ Disassembly of section .text:
   40010a:	2301      	movs	r3, #1
   40010c:	7023      	strb	r3, [r4, #0]
   40010e:	bd10      	pop	{r4, pc}
-  400110:	200009d0 	.word	0x200009d0
+  400110:	200009c8 	.word	0x200009c8
   400114:	00000000 	.word	0x00000000
   400118:	004089c4 	.word	0x004089c4
 
@@ -99,7 +99,7 @@ Disassembly of section .text:
   40014e:	bf00      	nop
   400150:	00000000 	.word	0x00000000
   400154:	004089c4 	.word	0x004089c4
-  400158:	200009d4 	.word	0x200009d4
+  400158:	200009cc 	.word	0x200009cc
   40015c:	004089c4 	.word	0x004089c4
   400160:	00000000 	.word	0x00000000
 
@@ -123,7 +123,7 @@ void all_off(void){
   40016e:	4b02      	ldr	r3, [pc, #8]	; (400178 <all_off+0x14>)
   400170:	635a      	str	r2, [r3, #52]	; 0x34
   400172:	4770      	bx	lr
-  400174:	2000c388 	.word	0x2000c388
+  400174:	2000c380 	.word	0x2000c380
   400178:	400e1400 	.word	0x400e1400
 
 0040017c <reset_line_handler>:
@@ -679,9 +679,9 @@ static inline void sysclk_enable_peripheral_clock(uint32_t ul_id)
   4004ec:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
   4004f0:	00400495 	.word	0x00400495
   4004f4:	00400499 	.word	0x00400499
-  4004f8:	200009ec 	.word	0x200009ec
-  4004fc:	2000c518 	.word	0x2000c518
-  400500:	20000a60 	.word	0x20000a60
+  4004f8:	200009e4 	.word	0x200009e4
+  4004fc:	2000c514 	.word	0x2000c514
+  400500:	20000a58 	.word	0x20000a58
 
 00400504 <pio_handler_set>:
   400504:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
@@ -729,8 +729,8 @@ static inline void sysclk_enable_peripheral_clock(uint32_t ul_id)
   400562:	2001      	movs	r0, #1
   400564:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
   400566:	bf00      	nop
-  400568:	20000a5c 	.word	0x20000a5c
-  40056c:	200009ec 	.word	0x200009ec
+  400568:	20000a54 	.word	0x20000a54
+  40056c:	200009e4 	.word	0x200009e4
   400570:	00400463 	.word	0x00400463
 
 00400574 <PIOA_Handler>:
@@ -994,9 +994,9 @@ static inline void sysclk_enable_peripheral_clock(uint32_t ul_id)
   4007b2:	bf00      	nop
   4007b4:	20000000 	.word	0x20000000
   4007b8:	004089c4 	.word	0x004089c4
-  4007bc:	200009d0 	.word	0x200009d0
-  4007c0:	2000c97c 	.word	0x2000c97c
-  4007c4:	200009d0 	.word	0x200009d0
+  4007bc:	200009c8 	.word	0x200009c8
+  4007c0:	2000c978 	.word	0x2000c978
+  4007c4:	200009c8 	.word	0x200009c8
   4007c8:	e000ed00 	.word	0xe000ed00
   4007cc:	00400000 	.word	0x00400000
   4007d0:	2000000a 	.word	0x2000000a
@@ -1188,9 +1188,9 @@ static inline void sysclk_enable_peripheral_clock(uint32_t ul_id)
   400984:	f04f 30ff 	mov.w	r0, #4294967295
   400988:	4770      	bx	lr
   40098a:	bf00      	nop
-  40098c:	20000a64 	.word	0x20000a64
+  40098c:	20000a5c 	.word	0x20000a5c
   400990:	2001fffc 	.word	0x2001fffc
-  400994:	2000f980 	.word	0x2000f980
+  400994:	2000f978 	.word	0x2000f978
 
 00400998 <_close>:
   400998:	f04f 30ff 	mov.w	r0, #4294967295
@@ -1523,15 +1523,15 @@ static inline void afec_channel_set_analog_offset(Afec *const afec,
   400b62:	bf00      	nop
   400b64:	400b0000 	.word	0x400b0000
   400b68:	00402315 	.word	0x00402315
-  400b6c:	2000c3dc 	.word	0x2000c3dc
+  400b6c:	2000c3d8 	.word	0x2000c3d8
   400b70:	004021c9 	.word	0x004021c9
   400b74:	00402219 	.word	0x00402219
-  400b78:	2000c3d8 	.word	0x2000c3d8
+  400b78:	2000c3d4 	.word	0x2000c3d4
   400b7c:	004021f9 	.word	0x004021f9
   400b80:	004084cc 	.word	0x004084cc
   400b84:	00402185 	.word	0x00402185
-  400b88:	2000c3f8 	.word	0x2000c3f8
-  400b8c:	2000c514 	.word	0x2000c514
+  400b88:	2000c3f4 	.word	0x2000c3f4
+  400b8c:	2000c510 	.word	0x2000c510
   400b90:	004084dc 	.word	0x004084dc
   400b94:	400b4000 	.word	0x400b4000
   400b98:	00402203 	.word	0x00402203
@@ -1703,12 +1703,12 @@ static void reset_mailbox_conf(can_mb_conf_t *p_mailbox)
 }
   400c80:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
   400c84:	40010000 	.word	0x40010000
-  400c88:	2000c398 	.word	0x2000c398
+  400c88:	2000c394 	.word	0x2000c394
   400c8c:	00402521 	.word	0x00402521
   400c90:	00402383 	.word	0x00402383
   400c94:	00402395 	.word	0x00402395
   400c98:	00402379 	.word	0x00402379
-  400c9c:	2000c414 	.word	0x2000c414
+  400c9c:	2000c410 	.word	0x2000c410
   400ca0:	004023bb 	.word	0x004023bb
   400ca4:	1ffc0000 	.word	0x1ffc0000
 
@@ -1769,37 +1769,37 @@ void pdu_pwm_init(void){
   400cee:	6123      	str	r3, [r4, #16]
 		/* Duty cycle value of output waveform */
 		hc_pwm_channel[i].ul_duty = PDU_DEFAULT_DUTY_VALUE;
-  400cf0:	234b      	movs	r3, #75	; 0x4b
-  400cf2:	60e3      	str	r3, [r4, #12]
+  400cf0:	60e5      	str	r5, [r4, #12]
 		hc_pwm_channel[i].channel = pwm_assignment[i];
-  400cf4:	6026      	str	r6, [r4, #0]
+  400cf2:	6026      	str	r6, [r4, #0]
 	
 		pwm_channel_init(PWM, &(hc_pwm_channel[i]));
-  400cf6:	4621      	mov	r1, r4
-  400cf8:	4640      	mov	r0, r8
-  400cfa:	4b0b      	ldr	r3, [pc, #44]	; (400d28 <pdu_pwm_init+0x80>)
-  400cfc:	4798      	blx	r3
+  400cf4:	4621      	mov	r1, r4
+  400cf6:	4640      	mov	r0, r8
+  400cf8:	4b0b      	ldr	r3, [pc, #44]	; (400d28 <pdu_pwm_init+0x80>)
+  400cfa:	4798      	blx	r3
 		pwm_channel_enable_interrupt(PWM, pwm_assignment[i], 0);
-  400cfe:	462a      	mov	r2, r5
-  400d00:	4631      	mov	r1, r6
-  400d02:	4640      	mov	r0, r8
-  400d04:	4b09      	ldr	r3, [pc, #36]	; (400d2c <pdu_pwm_init+0x84>)
-  400d06:	4798      	blx	r3
-  400d08:	3438      	adds	r4, #56	; 0x38
+  400cfc:	462a      	mov	r2, r5
+  400cfe:	4631      	mov	r1, r6
+  400d00:	4640      	mov	r0, r8
+  400d02:	4b0a      	ldr	r3, [pc, #40]	; (400d2c <pdu_pwm_init+0x84>)
+  400d04:	4798      	blx	r3
+  400d06:	3438      	adds	r4, #56	; 0x38
 	for(int i =0; i < NUM_HC_CHANNEL; i++){
-  400d0a:	4557      	cmp	r7, sl
-  400d0c:	d1e4      	bne.n	400cd8 <pdu_pwm_init+0x30>
+  400d08:	4557      	cmp	r7, sl
+  400d0a:	d1e5      	bne.n	400cd8 <pdu_pwm_init+0x30>
 
 	}
 		
 }
-  400d0e:	b004      	add	sp, #16
-  400d10:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  400d0c:	b004      	add	sp, #16
+  400d0e:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  400d12:	bf00      	nop
   400d14:	0007a120 	.word	0x0007a120
-  400d18:	2000c398 	.word	0x2000c398
+  400d18:	2000c394 	.word	0x2000c394
   400d1c:	00402671 	.word	0x00402671
   400d20:	0040860c 	.word	0x0040860c
-  400d24:	2000c770 	.word	0x2000c770
+  400d24:	2000c76c 	.word	0x2000c76c
   400d28:	004026b5 	.word	0x004026b5
   400d2c:	00402841 	.word	0x00402841
   400d30:	00402853 	.word	0x00402853
@@ -1839,7 +1839,7 @@ void init_PDU(void){
   400d62:	4b1f      	ldr	r3, [pc, #124]	; (400de0 <init_PDU+0xac>)
   400d64:	6018      	str	r0, [r3, #0]
 	enable_mask = PDU_DEFAULT_MASK;
-  400d66:	f44f 62e2 	mov.w	r2, #1808	; 0x710
+  400d66:	f44f 7232 	mov.w	r2, #712	; 0x2c8
   400d6a:	4b1e      	ldr	r3, [pc, #120]	; (400de4 <init_PDU+0xb0>)
   400d6c:	601a      	str	r2, [r3, #0]
   400d6e:	4d1e      	ldr	r5, [pc, #120]	; (400de8 <init_PDU+0xb4>)
@@ -1893,11 +1893,11 @@ void init_PDU(void){
   400dc8:	00400ba5 	.word	0x00400ba5
   400dcc:	00400a4d 	.word	0x00400a4d
   400dd0:	0040323d 	.word	0x0040323d
-  400dd4:	2000c850 	.word	0x2000c850
-  400dd8:	2000c5e8 	.word	0x2000c5e8
+  400dd4:	2000c84c 	.word	0x2000c84c
+  400dd8:	2000c5e4 	.word	0x2000c5e4
   400ddc:	0040301d 	.word	0x0040301d
-  400de0:	2000c5ec 	.word	0x2000c5ec
-  400de4:	2000c388 	.word	0x2000c388
+  400de0:	2000c5e8 	.word	0x2000c5e8
+  400de4:	2000c380 	.word	0x2000c380
   400de8:	004084e4 	.word	0x004084e4
   400dec:	00408500 	.word	0x00408500
 
@@ -2107,7 +2107,7 @@ void PDU_system_startup(void){
   400f00:	00401975 	.word	0x00401975
   400f04:	00408584 	.word	0x00408584
   400f08:	004085a4 	.word	0x004085a4
-  400f0c:	0040102d 	.word	0x0040102d
+  400f0c:	00401031 	.word	0x00401031
   400f10:	004085b0 	.word	0x004085b0
   400f14:	004085cc 	.word	0x004085cc
   400f18:	00401c51 	.word	0x00401c51
@@ -2124,678 +2124,679 @@ void PDU_system_startup(void){
 * Service a State Request from Requesting ECU
 */
 void enable_request(uint64_t payload){
-	enable_mask = ((payload)) & ~error_mask;
-  400f34:	4b04      	ldr	r3, [pc, #16]	; (400f48 <enable_request+0x14>)
+	enable_mask = ((payload | PDU_NON_ECU_MASK)) & ~error_mask;
+  400f34:	4b05      	ldr	r3, [pc, #20]	; (400f4c <enable_request+0x18>)
   400f36:	681b      	ldr	r3, [r3, #0]
-  400f38:	ea20 0003 	bic.w	r0, r0, r3
-  400f3c:	4b03      	ldr	r3, [pc, #12]	; (400f4c <enable_request+0x18>)
-  400f3e:	6018      	str	r0, [r3, #0]
+  400f38:	f440 7032 	orr.w	r0, r0, #712	; 0x2c8
+  400f3c:	ea20 0003 	bic.w	r0, r0, r3
+  400f40:	4b03      	ldr	r3, [pc, #12]	; (400f50 <enable_request+0x1c>)
+  400f42:	6018      	str	r0, [r3, #0]
 	g_recv_timeout_cnt = 0;
-  400f40:	2200      	movs	r2, #0
-  400f42:	4b03      	ldr	r3, [pc, #12]	; (400f50 <enable_request+0x1c>)
-  400f44:	601a      	str	r2, [r3, #0]
-  400f46:	4770      	bx	lr
-  400f48:	2000c38c 	.word	0x2000c38c
-  400f4c:	2000c388 	.word	0x2000c388
-  400f50:	2000c390 	.word	0x2000c390
+  400f44:	2200      	movs	r2, #0
+  400f46:	4b03      	ldr	r3, [pc, #12]	; (400f54 <enable_request+0x20>)
+  400f48:	601a      	str	r2, [r3, #0]
+  400f4a:	4770      	bx	lr
+  400f4c:	2000c384 	.word	0x2000c384
+  400f50:	2000c380 	.word	0x2000c380
+  400f54:	2000c388 	.word	0x2000c388
 
-00400f54 <ecu_eng_data>:
+00400f58 <ecu_eng_data>:
 	//do this to ensure off request are serviced
 	//TODO: someday refactor the port write code to make more sense
 	//set_enable(~enable_mask, PDU_OFF_STATE);
 }
 
 void ecu_eng_data(uint64_t payload){
-  400f54:	b082      	sub	sp, #8
+  400f58:	b082      	sub	sp, #8
 	vehicle.RPM = LSB0W(payload) * ECU_RPM_SCALE;
-  400f56:	b2c0      	uxtb	r0, r0
-  400f58:	f44f 7316 	mov.w	r3, #600	; 0x258
-  400f5c:	fb03 f000 	mul.w	r0, r3, r0
-  400f60:	4b01      	ldr	r3, [pc, #4]	; (400f68 <ecu_eng_data+0x14>)
-  400f62:	6018      	str	r0, [r3, #0]
+  400f5a:	b2c0      	uxtb	r0, r0
+  400f5c:	f44f 7316 	mov.w	r3, #600	; 0x258
+  400f60:	fb03 f000 	mul.w	r0, r3, r0
+  400f64:	4b01      	ldr	r3, [pc, #4]	; (400f6c <ecu_eng_data+0x14>)
+  400f66:	6018      	str	r0, [r3, #0]
 }
-  400f64:	b002      	add	sp, #8
-  400f66:	4770      	bx	lr
-  400f68:	2000c39c 	.word	0x2000c39c
+  400f68:	b002      	add	sp, #8
+  400f6a:	4770      	bx	lr
+  400f6c:	2000c398 	.word	0x2000c398
 
-00400f6c <ecu_vehicle_data>:
+00400f70 <ecu_vehicle_data>:
 
 void ecu_vehicle_data(uint64_t payload){
-  400f6c:	b082      	sub	sp, #8
+  400f70:	b082      	sub	sp, #8
 	vehicle.fuel_pressure	= LSB0D(payload);
-  400f6e:	4b03      	ldr	r3, [pc, #12]	; (400f7c <ecu_vehicle_data+0x10>)
-  400f70:	7198      	strb	r0, [r3, #6]
+  400f72:	4b03      	ldr	r3, [pc, #12]	; (400f80 <ecu_vehicle_data+0x10>)
+  400f74:	7198      	strb	r0, [r3, #6]
 	//PDU.batt_volt			= ( LSB1D(payload) << 8 ) | LSB2D(payload);
 	vehicle.eng_status		= (Tst_bits(LSB3D( payload ), 1));
-  400f72:	f3c0 6000 	ubfx	r0, r0, #24, #1
-  400f76:	71d8      	strb	r0, [r3, #7]
+  400f76:	f3c0 6000 	ubfx	r0, r0, #24, #1
+  400f7a:	71d8      	strb	r0, [r3, #7]
 }
-  400f78:	b002      	add	sp, #8
-  400f7a:	4770      	bx	lr
-  400f7c:	2000c39c 	.word	0x2000c39c
+  400f7c:	b002      	add	sp, #8
+  400f7e:	4770      	bx	lr
+  400f80:	2000c398 	.word	0x2000c398
 
-00400f80 <pwm_request>:
+00400f84 <pwm_request>:
 
 void pwm_request(uint64_t payload){
-  400f80:	b430      	push	{r4, r5}
-  400f82:	b082      	sub	sp, #8
-  400f84:	ac02      	add	r4, sp, #8
-  400f86:	e964 0102 	strd	r0, r1, [r4, #-8]!
+  400f84:	b430      	push	{r4, r5}
+  400f86:	b082      	sub	sp, #8
+  400f88:	ac02      	add	r4, sp, #8
+  400f8a:	e964 0102 	strd	r0, r1, [r4, #-8]!
 	
 	for(int i = 0; i < NUM_HC_CHANNEL; i++)
-  400f8a:	2300      	movs	r3, #0
+  400f8e:	2300      	movs	r3, #0
 		{
 		pwm_request_arr[i] = ((uint8_t *)( &( payload ) ))[i];
-  400f8c:	490c      	ldr	r1, [pc, #48]	; (400fc0 <pwm_request+0x40>)
+  400f90:	490c      	ldr	r1, [pc, #48]	; (400fc4 <pwm_request+0x40>)
 		if( pwm_request_arr[i] > max_duty_cycle ) pwm_request_arr[i] = max_duty_cycle;
-  400f8e:	4d0d      	ldr	r5, [pc, #52]	; (400fc4 <pwm_request+0x44>)
-  400f90:	e007      	b.n	400fa2 <pwm_request+0x22>
+  400f92:	4d0d      	ldr	r5, [pc, #52]	; (400fc8 <pwm_request+0x44>)
+  400f94:	e007      	b.n	400fa6 <pwm_request+0x22>
 		pwm_request_arr[i] = PWM_DUTY_CYCLE_OFFSET - pwm_request_arr[i];
-  400f92:	5cca      	ldrb	r2, [r1, r3]
-  400f94:	f1c2 0264 	rsb	r2, r2, #100	; 0x64
-  400f98:	b2d2      	uxtb	r2, r2
-  400f9a:	54ca      	strb	r2, [r1, r3]
+  400f96:	5cca      	ldrb	r2, [r1, r3]
+  400f98:	f1c2 0264 	rsb	r2, r2, #100	; 0x64
+  400f9c:	b2d2      	uxtb	r2, r2
+  400f9e:	54ca      	strb	r2, [r1, r3]
 	for(int i = 0; i < NUM_HC_CHANNEL; i++)
-  400f9c:	3301      	adds	r3, #1
-  400f9e:	2b04      	cmp	r3, #4
-  400fa0:	d00b      	beq.n	400fba <pwm_request+0x3a>
+  400fa0:	3301      	adds	r3, #1
+  400fa2:	2b04      	cmp	r3, #4
+  400fa4:	d00b      	beq.n	400fbe <pwm_request+0x3a>
 		pwm_request_arr[i] = ((uint8_t *)( &( payload ) ))[i];
-  400fa2:	f814 2b01 	ldrb.w	r2, [r4], #1
-  400fa6:	54ca      	strb	r2, [r1, r3]
+  400fa6:	f814 2b01 	ldrb.w	r2, [r4], #1
+  400faa:	54ca      	strb	r2, [r1, r3]
 		if( pwm_request_arr[i] > max_duty_cycle ) pwm_request_arr[i] = max_duty_cycle;
-  400fa8:	5cca      	ldrb	r2, [r1, r3]
-  400faa:	7828      	ldrb	r0, [r5, #0]
-  400fac:	b2d2      	uxtb	r2, r2
-  400fae:	4282      	cmp	r2, r0
-  400fb0:	d9ef      	bls.n	400f92 <pwm_request+0x12>
-  400fb2:	782a      	ldrb	r2, [r5, #0]
-  400fb4:	b2d2      	uxtb	r2, r2
-  400fb6:	54ca      	strb	r2, [r1, r3]
-  400fb8:	e7eb      	b.n	400f92 <pwm_request+0x12>
+  400fac:	5cca      	ldrb	r2, [r1, r3]
+  400fae:	7828      	ldrb	r0, [r5, #0]
+  400fb0:	b2d2      	uxtb	r2, r2
+  400fb2:	4282      	cmp	r2, r0
+  400fb4:	d9ef      	bls.n	400f96 <pwm_request+0x12>
+  400fb6:	782a      	ldrb	r2, [r5, #0]
+  400fb8:	b2d2      	uxtb	r2, r2
+  400fba:	54ca      	strb	r2, [r1, r3]
+  400fbc:	e7eb      	b.n	400f96 <pwm_request+0x12>
 		}
 	
 }
-  400fba:	b002      	add	sp, #8
-  400fbc:	bc30      	pop	{r4, r5}
-  400fbe:	4770      	bx	lr
-  400fc0:	20000018 	.word	0x20000018
-  400fc4:	20000014 	.word	0x20000014
+  400fbe:	b002      	add	sp, #8
+  400fc0:	bc30      	pop	{r4, r5}
+  400fc2:	4770      	bx	lr
+  400fc4:	2000c38c 	.word	0x2000c38c
+  400fc8:	20000014 	.word	0x20000014
 
-00400fc8 <unused_id>:
+00400fcc <unused_id>:
 
 void unused_id(uint64_t payload){
-  400fc8:	4770      	bx	lr
+  400fcc:	4770      	bx	lr
 	...
 
-00400fcc <handle_CAN>:
+00400fd0 <handle_CAN>:
 void handle_CAN(can_mb_conf_t mailbox){
-  400fcc:	b084      	sub	sp, #16
-  400fce:	b570      	push	{r4, r5, r6, lr}
-  400fd0:	ac04      	add	r4, sp, #16
-  400fd2:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+  400fd0:	b084      	sub	sp, #16
+  400fd2:	b570      	push	{r4, r5, r6, lr}
+  400fd4:	ac04      	add	r4, sp, #16
+  400fd6:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
 	payload.u32[0] = mailbox.ul_datal;
-  400fd6:	980a      	ldr	r0, [sp, #40]	; 0x28
+  400fda:	980a      	ldr	r0, [sp, #40]	; 0x28
 	payload.u32[1] = mailbox.ul_datah;
-  400fd8:	990b      	ldr	r1, [sp, #44]	; 0x2c
+  400fdc:	990b      	ldr	r1, [sp, #44]	; 0x2c
 	recieve_handler_parse( (mailbox.ul_id | CAN_MID_MIDvA(mailbox.ul_fid) )& CAN_MID_MIDvA_Msk )( payload.u64 );
-  400fda:	4c11      	ldr	r4, [pc, #68]	; (401020 <handle_CAN+0x54>)
-  400fdc:	9b09      	ldr	r3, [sp, #36]	; 0x24
-  400fde:	ea04 4283 	and.w	r2, r4, r3, lsl #18
-  400fe2:	9b08      	ldr	r3, [sp, #32]
-  400fe4:	431a      	orrs	r2, r3
-  400fe6:	4022      	ands	r2, r4
+  400fde:	4c11      	ldr	r4, [pc, #68]	; (401024 <handle_CAN+0x54>)
+  400fe0:	9b09      	ldr	r3, [sp, #36]	; 0x24
+  400fe2:	ea04 4283 	and.w	r2, r4, r3, lsl #18
+  400fe6:	9b08      	ldr	r3, [sp, #32]
+  400fe8:	431a      	orrs	r2, r3
+  400fea:	4022      	ands	r2, r4
 		if(recieve_dispatch_table[i].can_id == id) return recieve_dispatch_table[i].callback;
-  400fe8:	f1b2 6f8d 	cmp.w	r2, #73924608	; 0x4680000
-  400fec:	d011      	beq.n	401012 <handle_CAN+0x46>
-  400fee:	2301      	movs	r3, #1
-  400ff0:	461c      	mov	r4, r3
-  400ff2:	4e0c      	ldr	r6, [pc, #48]	; (401024 <handle_CAN+0x58>)
-  400ff4:	f856 5034 	ldr.w	r5, [r6, r4, lsl #3]
-  400ff8:	42aa      	cmp	r2, r5
-  400ffa:	d00b      	beq.n	401014 <handle_CAN+0x48>
+  400fec:	f1b2 6f8d 	cmp.w	r2, #73924608	; 0x4680000
+  400ff0:	d011      	beq.n	401016 <handle_CAN+0x46>
+  400ff2:	2301      	movs	r3, #1
+  400ff4:	461c      	mov	r4, r3
+  400ff6:	4e0c      	ldr	r6, [pc, #48]	; (401028 <handle_CAN+0x58>)
+  400ff8:	f856 5034 	ldr.w	r5, [r6, r4, lsl #3]
+  400ffc:	42aa      	cmp	r2, r5
+  400ffe:	d00b      	beq.n	401018 <handle_CAN+0x48>
 	for(uint8_t i = 0; i < num_can_handlers; i++ ){
-  400ffc:	3301      	adds	r3, #1
-  400ffe:	b2db      	uxtb	r3, r3
-  401000:	461c      	mov	r4, r3
-  401002:	2b03      	cmp	r3, #3
-  401004:	ddf6      	ble.n	400ff4 <handle_CAN+0x28>
+  401000:	3301      	adds	r3, #1
+  401002:	b2db      	uxtb	r3, r3
+  401004:	461c      	mov	r4, r3
+  401006:	2b03      	cmp	r3, #3
+  401008:	ddf6      	ble.n	400ff8 <handle_CAN+0x28>
 	return unused_id;
-  401006:	4b08      	ldr	r3, [pc, #32]	; (401028 <handle_CAN+0x5c>)
+  40100a:	4b08      	ldr	r3, [pc, #32]	; (40102c <handle_CAN+0x5c>)
 	recieve_handler_parse( (mailbox.ul_id | CAN_MID_MIDvA(mailbox.ul_fid) )& CAN_MID_MIDvA_Msk )( payload.u64 );
-  401008:	4798      	blx	r3
+  40100c:	4798      	blx	r3
 }
-  40100a:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  40100e:	b004      	add	sp, #16
-  401010:	4770      	bx	lr
+  40100e:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  401012:	b004      	add	sp, #16
+  401014:	4770      	bx	lr
 	for(uint8_t i = 0; i < num_can_handlers; i++ ){
-  401012:	2400      	movs	r4, #0
+  401016:	2400      	movs	r4, #0
 		if(recieve_dispatch_table[i].can_id == id) return recieve_dispatch_table[i].callback;
-  401014:	4b03      	ldr	r3, [pc, #12]	; (401024 <handle_CAN+0x58>)
-  401016:	eb03 04c4 	add.w	r4, r3, r4, lsl #3
-  40101a:	6863      	ldr	r3, [r4, #4]
-  40101c:	e7f4      	b.n	401008 <handle_CAN+0x3c>
-  40101e:	bf00      	nop
-  401020:	1ffc0000 	.word	0x1ffc0000
-  401024:	0040861c 	.word	0x0040861c
-  401028:	00400fc9 	.word	0x00400fc9
+  401018:	4b03      	ldr	r3, [pc, #12]	; (401028 <handle_CAN+0x58>)
+  40101a:	eb03 04c4 	add.w	r4, r3, r4, lsl #3
+  40101e:	6863      	ldr	r3, [r4, #4]
+  401020:	e7f4      	b.n	40100c <handle_CAN+0x3c>
+  401022:	bf00      	nop
+  401024:	1ffc0000 	.word	0x1ffc0000
+  401028:	0040861c 	.word	0x0040861c
+  40102c:	00400fcd 	.word	0x00400fcd
 
-0040102c <can_thread>:
+00401030 <can_thread>:
 	UNUSED(payload);
 }
 
 void can_thread(void* pvParameters){
-  40102c:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
-  401030:	b086      	sub	sp, #24
+  401030:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+  401034:	b086      	sub	sp, #24
 	
 		static volatile uint32_t status = 0;
 		TickType_t xLastWakeTime;
 		const TickType_t xFrequency = TASK_10_HZ;
 		
 		xLastWakeTime = xTaskGetTickCount();
-  401032:	4b35      	ldr	r3, [pc, #212]	; (401108 <can_thread+0xdc>)
-  401034:	4798      	blx	r3
-  401036:	9005      	str	r0, [sp, #20]
+  401036:	4b35      	ldr	r3, [pc, #212]	; (40110c <can_thread+0xdc>)
+  401038:	4798      	blx	r3
+  40103a:	9005      	str	r0, [sp, #20]
 			{
 				
 			g_recv_timeout_cnt += xFrequency;
 
 			//check enable mailbox(M0)
 			status = can_get_status(PDU_CAN);
-  401038:	4d34      	ldr	r5, [pc, #208]	; (40110c <can_thread+0xe0>)
-  40103a:	4c35      	ldr	r4, [pc, #212]	; (401110 <can_thread+0xe4>)
+  40103c:	4d34      	ldr	r5, [pc, #208]	; (401110 <can_thread+0xe0>)
+  40103e:	4c35      	ldr	r4, [pc, #212]	; (401114 <can_thread+0xe4>)
 			//can_mailbox_read(PDU_CAN, &can_mailbox[0]);
 			//if( status & GLOBAL_MAILBOX_MASK){
 			status = can_mailbox_get_status(PDU_CAN, ctz(ENABLE_MB));
-  40103c:	4e35      	ldr	r6, [pc, #212]	; (401114 <can_thread+0xe8>)
+  401040:	4e35      	ldr	r6, [pc, #212]	; (401118 <can_thread+0xe8>)
 __always_inline static void arch_ioport_toggle_pin_level(ioport_pin_t pin)
 {
 	Pio *port = arch_ioport_pin_to_base(pin);
 	ioport_port_mask_t mask = arch_ioport_pin_to_mask(pin);
 
 	if (port->PIO_PDSR & arch_ioport_pin_to_mask(pin)) {
-  40103e:	f8df 90ec 	ldr.w	r9, [pc, #236]	; 40112c <can_thread+0x100>
+  401042:	f8df 90ec 	ldr.w	r9, [pc, #236]	; 401130 <can_thread+0x100>
 			if ((status & CAN_MSR_MRDY) == CAN_MSR_MRDY)
 				{
 #ifdef CAN_REC_THREAD_LED
 				ioport_toggle_pin_level(CAN_REC_THREAD_LED);
 #endif
 				can_mailbox_read(PDU_CAN, &can_mailbox[ctz(ENABLE_MB)]);
-  401042:	4f35      	ldr	r7, [pc, #212]	; (401118 <can_thread+0xec>)
+  401046:	4f35      	ldr	r7, [pc, #212]	; (40111c <can_thread+0xec>)
 				handle_CAN(can_mailbox[ctz(ENABLE_MB)]);
-  401044:	f107 0810 	add.w	r8, r7, #16
-  401048:	e013      	b.n	401072 <can_thread+0x46>
+  401048:	f107 0810 	add.w	r8, r7, #16
+  40104c:	e013      	b.n	401076 <can_thread+0x46>
 				}
 
 
 			//check pwm mailbox(M1)
 			status = can_mailbox_get_status(PDU_CAN,  ctz(PWM_MB));
-  40104a:	2101      	movs	r1, #1
-  40104c:	4628      	mov	r0, r5
-  40104e:	47b0      	blx	r6
-  401050:	6020      	str	r0, [r4, #0]
+  40104e:	2101      	movs	r1, #1
+  401050:	4628      	mov	r0, r5
+  401052:	47b0      	blx	r6
+  401054:	6020      	str	r0, [r4, #0]
 			if ((status & CAN_MSR_MRDY) == CAN_MSR_MRDY)
-  401052:	6823      	ldr	r3, [r4, #0]
-  401054:	f413 0f00 	tst.w	r3, #8388608	; 0x800000
-  401058:	d134      	bne.n	4010c4 <can_thread+0x98>
+  401056:	6823      	ldr	r3, [r4, #0]
+  401058:	f413 0f00 	tst.w	r3, #8388608	; 0x800000
+  40105c:	d134      	bne.n	4010c8 <can_thread+0x98>
 				can_mailbox_read(PDU_CAN, &can_mailbox[ctz(PWM_MB)]);
 				handle_CAN(can_mailbox[ctz(PWM_MB)]);
 				}
 				
 			//if new messages grab data from rest of mailboxes
 			status = can_mailbox_get_status(PDU_CAN,  ctz(REC_MB));
-  40105a:	2102      	movs	r1, #2
-  40105c:	4628      	mov	r0, r5
-  40105e:	47b0      	blx	r6
-  401060:	6020      	str	r0, [r4, #0]
+  40105e:	2102      	movs	r1, #2
+  401060:	4628      	mov	r0, r5
+  401062:	47b0      	blx	r6
+  401064:	6020      	str	r0, [r4, #0]
 			if ((status & CAN_MSR_MRDY) == CAN_MSR_MRDY)
-  401062:	6823      	ldr	r3, [r4, #0]
-  401064:	f413 0f00 	tst.w	r3, #8388608	; 0x800000
-  401068:	d13d      	bne.n	4010e6 <can_thread+0xba>
+  401066:	6823      	ldr	r3, [r4, #0]
+  401068:	f413 0f00 	tst.w	r3, #8388608	; 0x800000
+  40106c:	d13d      	bne.n	4010ea <can_thread+0xba>
 			}
 			
 
 			
 			// wait
 			vTaskDelayUntil(&xLastWakeTime, pdMS_TO_TICKS(xFrequency));
-  40106a:	2164      	movs	r1, #100	; 0x64
-  40106c:	a805      	add	r0, sp, #20
-  40106e:	4b2b      	ldr	r3, [pc, #172]	; (40111c <can_thread+0xf0>)
-  401070:	4798      	blx	r3
+  40106e:	2164      	movs	r1, #100	; 0x64
+  401070:	a805      	add	r0, sp, #20
+  401072:	4b2b      	ldr	r3, [pc, #172]	; (401120 <can_thread+0xf0>)
+  401074:	4798      	blx	r3
 			g_recv_timeout_cnt += xFrequency;
-  401072:	4a2b      	ldr	r2, [pc, #172]	; (401120 <can_thread+0xf4>)
-  401074:	6813      	ldr	r3, [r2, #0]
-  401076:	3364      	adds	r3, #100	; 0x64
-  401078:	6013      	str	r3, [r2, #0]
+  401076:	4a2b      	ldr	r2, [pc, #172]	; (401124 <can_thread+0xf4>)
+  401078:	6813      	ldr	r3, [r2, #0]
+  40107a:	3364      	adds	r3, #100	; 0x64
+  40107c:	6013      	str	r3, [r2, #0]
 			status = can_get_status(PDU_CAN);
-  40107a:	4628      	mov	r0, r5
-  40107c:	4b29      	ldr	r3, [pc, #164]	; (401124 <can_thread+0xf8>)
-  40107e:	4798      	blx	r3
-  401080:	6020      	str	r0, [r4, #0]
+  40107e:	4628      	mov	r0, r5
+  401080:	4b29      	ldr	r3, [pc, #164]	; (401128 <can_thread+0xf8>)
+  401082:	4798      	blx	r3
+  401084:	6020      	str	r0, [r4, #0]
 			status = can_mailbox_get_status(PDU_CAN, ctz(ENABLE_MB));
-  401082:	2100      	movs	r1, #0
-  401084:	4628      	mov	r0, r5
-  401086:	47b0      	blx	r6
-  401088:	6020      	str	r0, [r4, #0]
+  401086:	2100      	movs	r1, #0
+  401088:	4628      	mov	r0, r5
+  40108a:	47b0      	blx	r6
+  40108c:	6020      	str	r0, [r4, #0]
 			if ((status & CAN_MSR_MRDY) == CAN_MSR_MRDY)
-  40108a:	6823      	ldr	r3, [r4, #0]
-  40108c:	f413 0f00 	tst.w	r3, #8388608	; 0x800000
-  401090:	d0db      	beq.n	40104a <can_thread+0x1e>
-  401092:	f8d9 303c 	ldr.w	r3, [r9, #60]	; 0x3c
-  401096:	f013 6f00 	tst.w	r3, #134217728	; 0x8000000
+  40108e:	6823      	ldr	r3, [r4, #0]
+  401090:	f413 0f00 	tst.w	r3, #8388608	; 0x800000
+  401094:	d0db      	beq.n	40104e <can_thread+0x1e>
+  401096:	f8d9 303c 	ldr.w	r3, [r9, #60]	; 0x3c
+  40109a:	f013 6f00 	tst.w	r3, #134217728	; 0x8000000
 		port->PIO_CODR = mask;
-  40109a:	f04f 6300 	mov.w	r3, #134217728	; 0x8000000
-  40109e:	bf14      	ite	ne
-  4010a0:	f8c9 3034 	strne.w	r3, [r9, #52]	; 0x34
+  40109e:	f04f 6300 	mov.w	r3, #134217728	; 0x8000000
+  4010a2:	bf14      	ite	ne
+  4010a4:	f8c9 3034 	strne.w	r3, [r9, #52]	; 0x34
 	} else {
 		port->PIO_SODR = mask;
-  4010a4:	f8c9 3030 	streq.w	r3, [r9, #48]	; 0x30
+  4010a8:	f8c9 3030 	streq.w	r3, [r9, #48]	; 0x30
 				can_mailbox_read(PDU_CAN, &can_mailbox[ctz(ENABLE_MB)]);
-  4010a8:	4639      	mov	r1, r7
-  4010aa:	4628      	mov	r0, r5
-  4010ac:	4b1e      	ldr	r3, [pc, #120]	; (401128 <can_thread+0xfc>)
-  4010ae:	4798      	blx	r3
+  4010ac:	4639      	mov	r1, r7
+  4010ae:	4628      	mov	r0, r5
+  4010b0:	4b1e      	ldr	r3, [pc, #120]	; (40112c <can_thread+0xfc>)
+  4010b2:	4798      	blx	r3
 				handle_CAN(can_mailbox[ctz(ENABLE_MB)]);
-  4010b0:	e898 000f 	ldmia.w	r8, {r0, r1, r2, r3}
-  4010b4:	e88d 000f 	stmia.w	sp, {r0, r1, r2, r3}
-  4010b8:	e897 000f 	ldmia.w	r7, {r0, r1, r2, r3}
-  4010bc:	f8df a070 	ldr.w	sl, [pc, #112]	; 401130 <can_thread+0x104>
-  4010c0:	47d0      	blx	sl
-  4010c2:	e7c2      	b.n	40104a <can_thread+0x1e>
+  4010b4:	e898 000f 	ldmia.w	r8, {r0, r1, r2, r3}
+  4010b8:	e88d 000f 	stmia.w	sp, {r0, r1, r2, r3}
+  4010bc:	e897 000f 	ldmia.w	r7, {r0, r1, r2, r3}
+  4010c0:	f8df a070 	ldr.w	sl, [pc, #112]	; 401134 <can_thread+0x104>
+  4010c4:	47d0      	blx	sl
+  4010c6:	e7c2      	b.n	40104e <can_thread+0x1e>
 				can_mailbox_read(PDU_CAN, &can_mailbox[ctz(PWM_MB)]);
-  4010c4:	f8df a06c 	ldr.w	sl, [pc, #108]	; 401134 <can_thread+0x108>
-  4010c8:	4651      	mov	r1, sl
-  4010ca:	4628      	mov	r0, r5
-  4010cc:	4b16      	ldr	r3, [pc, #88]	; (401128 <can_thread+0xfc>)
-  4010ce:	4798      	blx	r3
+  4010c8:	f8df a06c 	ldr.w	sl, [pc, #108]	; 401138 <can_thread+0x108>
+  4010cc:	4651      	mov	r1, sl
+  4010ce:	4628      	mov	r0, r5
+  4010d0:	4b16      	ldr	r3, [pc, #88]	; (40112c <can_thread+0xfc>)
+  4010d2:	4798      	blx	r3
 				handle_CAN(can_mailbox[ctz(PWM_MB)]);
-  4010d0:	f10a 0310 	add.w	r3, sl, #16
-  4010d4:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
-  4010d6:	e88d 000f 	stmia.w	sp, {r0, r1, r2, r3}
-  4010da:	e89a 000f 	ldmia.w	sl, {r0, r1, r2, r3}
-  4010de:	f8df a050 	ldr.w	sl, [pc, #80]	; 401130 <can_thread+0x104>
-  4010e2:	47d0      	blx	sl
-  4010e4:	e7b9      	b.n	40105a <can_thread+0x2e>
+  4010d4:	f10a 0310 	add.w	r3, sl, #16
+  4010d8:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
+  4010da:	e88d 000f 	stmia.w	sp, {r0, r1, r2, r3}
+  4010de:	e89a 000f 	ldmia.w	sl, {r0, r1, r2, r3}
+  4010e2:	f8df a050 	ldr.w	sl, [pc, #80]	; 401134 <can_thread+0x104>
+  4010e6:	47d0      	blx	sl
+  4010e8:	e7b9      	b.n	40105e <can_thread+0x2e>
 				can_mailbox_read(PDU_CAN, &can_mailbox[ctz(REC_MB)]);
-  4010e6:	f8df a050 	ldr.w	sl, [pc, #80]	; 401138 <can_thread+0x10c>
-  4010ea:	4651      	mov	r1, sl
-  4010ec:	4628      	mov	r0, r5
-  4010ee:	4b0e      	ldr	r3, [pc, #56]	; (401128 <can_thread+0xfc>)
-  4010f0:	4798      	blx	r3
+  4010ea:	f8df a050 	ldr.w	sl, [pc, #80]	; 40113c <can_thread+0x10c>
+  4010ee:	4651      	mov	r1, sl
+  4010f0:	4628      	mov	r0, r5
+  4010f2:	4b0e      	ldr	r3, [pc, #56]	; (40112c <can_thread+0xfc>)
+  4010f4:	4798      	blx	r3
 				handle_CAN(can_mailbox[ctz(REC_MB)]);
-  4010f2:	f10a 0310 	add.w	r3, sl, #16
-  4010f6:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
-  4010f8:	e88d 000f 	stmia.w	sp, {r0, r1, r2, r3}
-  4010fc:	e89a 000f 	ldmia.w	sl, {r0, r1, r2, r3}
-  401100:	f8df a02c 	ldr.w	sl, [pc, #44]	; 401130 <can_thread+0x104>
-  401104:	47d0      	blx	sl
-  401106:	e7b0      	b.n	40106a <can_thread+0x3e>
-  401108:	00403805 	.word	0x00403805
-  40110c:	40010000 	.word	0x40010000
-  401110:	20000a68 	.word	0x20000a68
-  401114:	00402399 	.word	0x00402399
-  401118:	2000c414 	.word	0x2000c414
-  40111c:	00403a59 	.word	0x00403a59
-  401120:	2000c390 	.word	0x2000c390
-  401124:	00402395 	.word	0x00402395
-  401128:	0040243d 	.word	0x0040243d
-  40112c:	400e0e00 	.word	0x400e0e00
-  401130:	00400fcd 	.word	0x00400fcd
-  401134:	2000c434 	.word	0x2000c434
-  401138:	2000c454 	.word	0x2000c454
+  4010f6:	f10a 0310 	add.w	r3, sl, #16
+  4010fa:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
+  4010fc:	e88d 000f 	stmia.w	sp, {r0, r1, r2, r3}
+  401100:	e89a 000f 	ldmia.w	sl, {r0, r1, r2, r3}
+  401104:	f8df a02c 	ldr.w	sl, [pc, #44]	; 401134 <can_thread+0x104>
+  401108:	47d0      	blx	sl
+  40110a:	e7b0      	b.n	40106e <can_thread+0x3e>
+  40110c:	00403805 	.word	0x00403805
+  401110:	40010000 	.word	0x40010000
+  401114:	20000a60 	.word	0x20000a60
+  401118:	00402399 	.word	0x00402399
+  40111c:	2000c410 	.word	0x2000c410
+  401120:	00403a59 	.word	0x00403a59
+  401124:	2000c388 	.word	0x2000c388
+  401128:	00402395 	.word	0x00402395
+  40112c:	0040243d 	.word	0x0040243d
+  401130:	400e0e00 	.word	0x400e0e00
+  401134:	00400fd1 	.word	0x00400fd1
+  401138:	2000c430 	.word	0x2000c430
+  40113c:	2000c450 	.word	0x2000c450
 
-0040113c <CAN0_Handler>:
+00401140 <CAN0_Handler>:
 /*
 * Handler for generic interrupts from PDU_CAN
 * PDU is connected directly to vehicle ECU that requests PDU updates
 * Interrupt source is detected and then handled as needed
 */
 void CAN_HANDLER(void){
-  40113c:	b570      	push	{r4, r5, r6, lr}
+  401140:	b570      	push	{r4, r5, r6, lr}
 	* Local status variable for use in interrupt handler
 	* Used to hold/ and store result of determining source of the 
 	* Triggering interrupt
 	*/
 	uint32_t status;
 	status = can_get_status(PDU_CAN);				//get the entire status register
-  40113e:	4821      	ldr	r0, [pc, #132]	; (4011c4 <CAN0_Handler+0x88>)
-  401140:	4b21      	ldr	r3, [pc, #132]	; (4011c8 <CAN0_Handler+0x8c>)
-  401142:	4798      	blx	r3
+  401142:	4821      	ldr	r0, [pc, #132]	; (4011c8 <CAN0_Handler+0x88>)
+  401144:	4b21      	ldr	r3, [pc, #132]	; (4011cc <CAN0_Handler+0x8c>)
+  401146:	4798      	blx	r3
 	
 	
 	/*
 	* Interrupt Triggered by CAN bus off
 	*/	
 	if ( status & (CAN_SR_BOFF | CAN_SR_AERR) ){
-  401144:	f010 6f81 	tst.w	r0, #67633152	; 0x4080000
-  401148:	d100      	bne.n	40114c <CAN0_Handler+0x10>
-  40114a:	bd70      	pop	{r4, r5, r6, pc}
+  401148:	f010 6f81 	tst.w	r0, #67633152	; 0x4080000
+  40114c:	d100      	bne.n	401150 <CAN0_Handler+0x10>
+  40114e:	bd70      	pop	{r4, r5, r6, pc}
 		UBaseType_t uxSavedInterruptStatus;
 
 		
 		enable_mask = PDU_TIMEOUT_MASK;
-  40114c:	4c1f      	ldr	r4, [pc, #124]	; (4011cc <CAN0_Handler+0x90>)
-  40114e:	2600      	movs	r6, #0
-  401150:	6026      	str	r6, [r4, #0]
+  401150:	4c1f      	ldr	r4, [pc, #124]	; (4011d0 <CAN0_Handler+0x90>)
+  401152:	2348      	movs	r3, #72	; 0x48
+  401154:	6023      	str	r3, [r4, #0]
 		set_enable(enable_mask, PDU_ON_STATE);
-  401152:	6820      	ldr	r0, [r4, #0]
-  401154:	2101      	movs	r1, #1
-  401156:	4d1e      	ldr	r5, [pc, #120]	; (4011d0 <CAN0_Handler+0x94>)
-  401158:	47a8      	blx	r5
+  401156:	6820      	ldr	r0, [r4, #0]
+  401158:	2101      	movs	r1, #1
+  40115a:	4d1e      	ldr	r5, [pc, #120]	; (4011d4 <CAN0_Handler+0x94>)
+  40115c:	47a8      	blx	r5
 		//do this to ensure off request are serviced
 		//TODO: someday refactor the port write code to make more sense
 		set_enable(~enable_mask, PDU_OFF_STATE);
-  40115a:	6820      	ldr	r0, [r4, #0]
-  40115c:	4631      	mov	r1, r6
-  40115e:	43c0      	mvns	r0, r0
-  401160:	47a8      	blx	r5
+  40115e:	6820      	ldr	r0, [r4, #0]
+  401160:	2100      	movs	r1, #0
+  401162:	43c0      	mvns	r0, r0
+  401164:	47a8      	blx	r5
 		PDU.error_flag = true;
-  401162:	2201      	movs	r2, #1
-  401164:	4b1b      	ldr	r3, [pc, #108]	; (4011d4 <CAN0_Handler+0x98>)
-  401166:	715a      	strb	r2, [r3, #5]
+  401166:	2201      	movs	r2, #1
+  401168:	4b1b      	ldr	r3, [pc, #108]	; (4011d8 <CAN0_Handler+0x98>)
+  40116a:	715a      	strb	r2, [r3, #5]
 		
 		
 		can_init(PDU_CAN, ul_sysclk, PDU_CAN_BAUD);		
-  401168:	4c16      	ldr	r4, [pc, #88]	; (4011c4 <CAN0_Handler+0x88>)
-  40116a:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
-  40116e:	4b1a      	ldr	r3, [pc, #104]	; (4011d8 <CAN0_Handler+0x9c>)
-  401170:	6819      	ldr	r1, [r3, #0]
-  401172:	4620      	mov	r0, r4
-  401174:	4b19      	ldr	r3, [pc, #100]	; (4011dc <CAN0_Handler+0xa0>)
-  401176:	4798      	blx	r3
+  40116c:	4c16      	ldr	r4, [pc, #88]	; (4011c8 <CAN0_Handler+0x88>)
+  40116e:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+  401172:	4b1a      	ldr	r3, [pc, #104]	; (4011dc <CAN0_Handler+0x9c>)
+  401174:	6819      	ldr	r1, [r3, #0]
+  401176:	4620      	mov	r0, r4
+  401178:	4b19      	ldr	r3, [pc, #100]	; (4011e0 <CAN0_Handler+0xa0>)
+  40117a:	4798      	blx	r3
 				
 		/* Disable all CAN interrupts. */
 		can_disable_interrupt(PDU_CAN, CAN_DISABLE_ALL_INTERRUPT_MASK);
-  401178:	f04f 31ff 	mov.w	r1, #4294967295
-  40117c:	4620      	mov	r0, r4
-  40117e:	4b18      	ldr	r3, [pc, #96]	; (4011e0 <CAN0_Handler+0xa4>)
-  401180:	4798      	blx	r3
+  40117c:	f04f 31ff 	mov.w	r1, #4294967295
+  401180:	4620      	mov	r0, r4
+  401182:	4b18      	ldr	r3, [pc, #96]	; (4011e4 <CAN0_Handler+0xa4>)
+  401184:	4798      	blx	r3
 
 portFORCE_INLINE static uint32_t ulPortRaiseBASEPRI( void )
 {
 uint32_t ulOriginalBASEPRI, ulNewBASEPRI;
 
 	__asm volatile
-  401182:	f3ef 8611 	mrs	r6, BASEPRI
-  401186:	f04f 0350 	mov.w	r3, #80	; 0x50
-  40118a:	f383 8811 	msr	BASEPRI, r3
-  40118e:	f3bf 8f6f 	isb	sy
-  401192:	f3bf 8f4f 	dsb	sy
+  401186:	f3ef 8611 	mrs	r6, BASEPRI
+  40118a:	f04f 0350 	mov.w	r3, #80	; 0x50
+  40118e:	f383 8811 	msr	BASEPRI, r3
+  401192:	f3bf 8f6f 	isb	sy
+  401196:	f3bf 8f4f 	dsb	sy
 		uxSavedInterruptStatus = taskENTER_CRITICAL_FROM_ISR();
 		can_enable_autobaud_listen_mode(PDU_CAN);
-  401196:	4620      	mov	r0, r4
-  401198:	4b12      	ldr	r3, [pc, #72]	; (4011e4 <CAN0_Handler+0xa8>)
-  40119a:	4798      	blx	r3
+  40119a:	4620      	mov	r0, r4
+  40119c:	4b12      	ldr	r3, [pc, #72]	; (4011e8 <CAN0_Handler+0xa8>)
+  40119e:	4798      	blx	r3
 		//__disable_irq();
 		while( ( can_get_status(PDU_CAN) & PDU_ALL_ERR_MASK ) );
-  40119c:	4625      	mov	r5, r4
-  40119e:	4c0a      	ldr	r4, [pc, #40]	; (4011c8 <CAN0_Handler+0x8c>)
-  4011a0:	4628      	mov	r0, r5
-  4011a2:	47a0      	blx	r4
-  4011a4:	f010 5ff8 	tst.w	r0, #520093696	; 0x1f000000
-  4011a8:	d1fa      	bne.n	4011a0 <CAN0_Handler+0x64>
+  4011a0:	4625      	mov	r5, r4
+  4011a2:	4c0a      	ldr	r4, [pc, #40]	; (4011cc <CAN0_Handler+0x8c>)
+  4011a4:	4628      	mov	r0, r5
+  4011a6:	47a0      	blx	r4
+  4011a8:	f010 5ff8 	tst.w	r0, #520093696	; 0x1f000000
+  4011ac:	d1fa      	bne.n	4011a4 <CAN0_Handler+0x64>
 		can_disable_autobaud_listen_mode(PDU_CAN);
-  4011aa:	4c06      	ldr	r4, [pc, #24]	; (4011c4 <CAN0_Handler+0x88>)
-  4011ac:	4620      	mov	r0, r4
-  4011ae:	4b0e      	ldr	r3, [pc, #56]	; (4011e8 <CAN0_Handler+0xac>)
-  4011b0:	4798      	blx	r3
+  4011ae:	4c06      	ldr	r4, [pc, #24]	; (4011c8 <CAN0_Handler+0x88>)
+  4011b0:	4620      	mov	r0, r4
+  4011b2:	4b0e      	ldr	r3, [pc, #56]	; (4011ec <CAN0_Handler+0xac>)
+  4011b4:	4798      	blx	r3
 }
 /*-----------------------------------------------------------*/
 
 portFORCE_INLINE static void vPortSetBASEPRI( uint32_t ulNewMaskValue )
 {
 	__asm volatile
-  4011b2:	f386 8811 	msr	BASEPRI, r6
+  4011b6:	f386 8811 	msr	BASEPRI, r6
 		//__enable_irq();
 		taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
 		can_enable_interrupt(PDU_CAN, CAN_IER_BOFF);
-  4011b6:	f44f 2100 	mov.w	r1, #524288	; 0x80000
-  4011ba:	4620      	mov	r0, r4
-  4011bc:	4b0b      	ldr	r3, [pc, #44]	; (4011ec <CAN0_Handler+0xb0>)
-  4011be:	4798      	blx	r3
+  4011ba:	f44f 2100 	mov.w	r1, #524288	; 0x80000
+  4011be:	4620      	mov	r0, r4
+  4011c0:	4b0b      	ldr	r3, [pc, #44]	; (4011f0 <CAN0_Handler+0xb0>)
+  4011c2:	4798      	blx	r3
 		
 	}
-  4011c0:	e7c3      	b.n	40114a <CAN0_Handler+0xe>
-  4011c2:	bf00      	nop
-  4011c4:	40010000 	.word	0x40010000
-  4011c8:	00402395 	.word	0x00402395
-  4011cc:	2000c388 	.word	0x2000c388
-  4011d0:	004001e9 	.word	0x004001e9
-  4011d4:	2000c380 	.word	0x2000c380
-  4011d8:	2000c398 	.word	0x2000c398
-  4011dc:	00402521 	.word	0x00402521
-  4011e0:	00402391 	.word	0x00402391
-  4011e4:	00402383 	.word	0x00402383
-  4011e8:	00402379 	.word	0x00402379
-  4011ec:	0040238d 	.word	0x0040238d
+  4011c4:	e7c3      	b.n	40114e <CAN0_Handler+0xe>
+  4011c6:	bf00      	nop
+  4011c8:	40010000 	.word	0x40010000
+  4011cc:	00402395 	.word	0x00402395
+  4011d0:	2000c380 	.word	0x2000c380
+  4011d4:	004001e9 	.word	0x004001e9
+  4011d8:	2000c378 	.word	0x2000c378
+  4011dc:	2000c394 	.word	0x2000c394
+  4011e0:	00402521 	.word	0x00402521
+  4011e4:	00402391 	.word	0x00402391
+  4011e8:	00402383 	.word	0x00402383
+  4011ec:	00402379 	.word	0x00402379
+  4011f0:	0040238d 	.word	0x0040238d
 
-004011f0 <output_state_machine>:
+004011f4 <output_state_machine>:
 		// wait
 		vTaskDelayUntil(&xLastWakeTime, pdMS_TO_TICKS(xFrequency));
 		}
 }
 
 state_request output_state_machine(output_data_t* output_channel, uint32_t chan_num, is_config_t channel_is_config){
-  4011f0:	b082      	sub	sp, #8
-  4011f2:	b410      	push	{r4}
-  4011f4:	ac01      	add	r4, sp, #4
-  4011f6:	e884 000c 	stmia.w	r4, {r2, r3}
-  4011fa:	f8bd 2010 	ldrh.w	r2, [sp, #16]
+  4011f4:	b082      	sub	sp, #8
+  4011f6:	b410      	push	{r4}
+  4011f8:	ac01      	add	r4, sp, #4
+  4011fa:	e884 000c 	stmia.w	r4, {r2, r3}
+  4011fe:	f8bd 2010 	ldrh.w	r2, [sp, #16]
 	//init/off
 	if(output_channel->state == CHANNEL_OFF){
-  4011fe:	7a43      	ldrb	r3, [r0, #9]
-  401200:	b9db      	cbnz	r3, 40123a <output_state_machine+0x4a>
+  401202:	7a43      	ldrb	r3, [r0, #9]
+  401204:	b9db      	cbnz	r3, 40123e <output_state_machine+0x4a>
 		if(Tst_bits( enable_mask, 1<<chan_num ) & !Tst_bits( error_mask, 1<<chan_num )) return ON_REQUEST;
-  401202:	2301      	movs	r3, #1
-  401204:	fa03 f101 	lsl.w	r1, r3, r1
-  401208:	4b2e      	ldr	r3, [pc, #184]	; (4012c4 <output_state_machine+0xd4>)
-  40120a:	681b      	ldr	r3, [r3, #0]
-  40120c:	4c2e      	ldr	r4, [pc, #184]	; (4012c8 <output_state_machine+0xd8>)
-  40120e:	6824      	ldr	r4, [r4, #0]
-  401210:	4219      	tst	r1, r3
-  401212:	d006      	beq.n	401222 <output_state_machine+0x32>
-  401214:	4221      	tst	r1, r4
-  401216:	d104      	bne.n	401222 <output_state_machine+0x32>
-  401218:	2002      	movs	r0, #2
+  401206:	2301      	movs	r3, #1
+  401208:	fa03 f101 	lsl.w	r1, r3, r1
+  40120c:	4b2e      	ldr	r3, [pc, #184]	; (4012c8 <output_state_machine+0xd4>)
+  40120e:	681b      	ldr	r3, [r3, #0]
+  401210:	4c2e      	ldr	r4, [pc, #184]	; (4012cc <output_state_machine+0xd8>)
+  401212:	6824      	ldr	r4, [r4, #0]
+  401214:	4219      	tst	r1, r3
+  401216:	d006      	beq.n	401226 <output_state_machine+0x32>
+  401218:	4221      	tst	r1, r4
+  40121a:	d104      	bne.n	401226 <output_state_machine+0x32>
+  40121c:	2002      	movs	r0, #2
 	else if(output_channel->state == CHANNEL_OPEN){
 		if(output_channel->current < IS_OPEN_MIN_HC) return OFF_REQUEST;
 		}
 	
 	return NO_REQUEST;
 }
-  40121a:	f85d 4b04 	ldr.w	r4, [sp], #4
-  40121e:	b002      	add	sp, #8
-  401220:	4770      	bx	lr
+  40121e:	f85d 4b04 	ldr.w	r4, [sp], #4
+  401222:	b002      	add	sp, #8
+  401224:	4770      	bx	lr
 		else if(output_channel->current > channel_is_config.fault_min) return FAULT_TRANSITION;
-  401222:	7980      	ldrb	r0, [r0, #6]
-  401224:	4282      	cmp	r2, r0
-  401226:	d201      	bcs.n	40122c <output_state_machine+0x3c>
-  401228:	2005      	movs	r0, #5
-  40122a:	e7f6      	b.n	40121a <output_state_machine+0x2a>
+  401226:	7980      	ldrb	r0, [r0, #6]
+  401228:	4282      	cmp	r2, r0
+  40122a:	d201      	bcs.n	401230 <output_state_machine+0x3c>
+  40122c:	2005      	movs	r0, #5
+  40122e:	e7f6      	b.n	40121e <output_state_machine+0x2a>
 		else if(output_channel->current > channel_is_config.open_load_min) return OPEN_TRANSITION;
-  40122c:	f8bd 3012 	ldrh.w	r3, [sp, #18]
+  401230:	f8bd 3012 	ldrh.w	r3, [sp, #18]
 	return NO_REQUEST;
-  401230:	4283      	cmp	r3, r0
-  401232:	bf34      	ite	cc
-  401234:	2004      	movcc	r0, #4
-  401236:	2000      	movcs	r0, #0
-  401238:	e7ef      	b.n	40121a <output_state_machine+0x2a>
+  401234:	4283      	cmp	r3, r0
+  401236:	bf34      	ite	cc
+  401238:	2004      	movcc	r0, #4
+  40123a:	2000      	movcs	r0, #0
+  40123c:	e7ef      	b.n	40121e <output_state_machine+0x2a>
 	else if(output_channel->state == CHANNEL_ON){
-  40123a:	2b01      	cmp	r3, #1
-  40123c:	d008      	beq.n	401250 <output_state_machine+0x60>
+  40123e:	2b01      	cmp	r3, #1
+  401240:	d008      	beq.n	401254 <output_state_machine+0x60>
 	else if(output_channel->state == CHANNEL_OVER_CURRENT){
-  40123e:	2b02      	cmp	r3, #2
-  401240:	d021      	beq.n	401286 <output_state_machine+0x96>
+  401242:	2b02      	cmp	r3, #2
+  401244:	d021      	beq.n	40128a <output_state_machine+0x96>
 	else if(output_channel->state == CHANNEL_FAULT){
-  401242:	2b04      	cmp	r3, #4
-  401244:	d02e      	beq.n	4012a4 <output_state_machine+0xb4>
+  401246:	2b04      	cmp	r3, #4
+  401248:	d02e      	beq.n	4012a8 <output_state_machine+0xb4>
 		if(Tst_bits( enable_mask, 1<<chan_num ) & !Tst_bits( error_mask, 1<<chan_num )) return ON_REQUEST;
-  401246:	2b03      	cmp	r3, #3
-  401248:	bf14      	ite	ne
-  40124a:	2000      	movne	r0, #0
-  40124c:	2001      	moveq	r0, #1
-  40124e:	e7e4      	b.n	40121a <output_state_machine+0x2a>
+  40124a:	2b03      	cmp	r3, #3
+  40124c:	bf14      	ite	ne
+  40124e:	2000      	movne	r0, #0
+  401250:	2001      	moveq	r0, #1
+  401252:	e7e4      	b.n	40121e <output_state_machine+0x2a>
 		if(!Tst_bits(enable_mask, 1<<chan_num)){
-  401250:	4b1c      	ldr	r3, [pc, #112]	; (4012c4 <output_state_machine+0xd4>)
-  401252:	681c      	ldr	r4, [r3, #0]
-  401254:	2301      	movs	r3, #1
-  401256:	408b      	lsls	r3, r1
-  401258:	4223      	tst	r3, r4
-  40125a:	d005      	beq.n	401268 <output_state_machine+0x78>
+  401254:	4b1c      	ldr	r3, [pc, #112]	; (4012c8 <output_state_machine+0xd4>)
+  401256:	681c      	ldr	r4, [r3, #0]
+  401258:	2301      	movs	r3, #1
+  40125a:	408b      	lsls	r3, r1
+  40125c:	4223      	tst	r3, r4
+  40125e:	d005      	beq.n	40126c <output_state_machine+0x78>
 		else if(output_channel->current > channel_is_config.fault_min){
-  40125c:	7983      	ldrb	r3, [r0, #6]
-  40125e:	b29c      	uxth	r4, r3
-  401260:	42a2      	cmp	r2, r4
-  401262:	d205      	bcs.n	401270 <output_state_machine+0x80>
+  401260:	7983      	ldrb	r3, [r0, #6]
+  401262:	b29c      	uxth	r4, r3
+  401264:	42a2      	cmp	r2, r4
+  401266:	d205      	bcs.n	401274 <output_state_machine+0x80>
 			return FAULT_TRANSITION;
-  401264:	2005      	movs	r0, #5
-  401266:	e7d8      	b.n	40121a <output_state_machine+0x2a>
+  401268:	2005      	movs	r0, #5
+  40126a:	e7d8      	b.n	40121e <output_state_machine+0x2a>
 			output_channel->overcurrent_time = 0;
-  401268:	2300      	movs	r3, #0
-  40126a:	6003      	str	r3, [r0, #0]
+  40126c:	2300      	movs	r3, #0
+  40126e:	6003      	str	r3, [r0, #0]
 			return OFF_REQUEST;
-  40126c:	2001      	movs	r0, #1
-  40126e:	e7d4      	b.n	40121a <output_state_machine+0x2a>
+  401270:	2001      	movs	r0, #1
+  401272:	e7d4      	b.n	40121e <output_state_machine+0x2a>
 		else if(output_channel->current				> config[chan_num].current_limit){
-  401270:	4a16      	ldr	r2, [pc, #88]	; (4012cc <output_state_machine+0xdc>)
-  401272:	eb02 01c1 	add.w	r1, r2, r1, lsl #3
-  401276:	790a      	ldrb	r2, [r1, #4]
-  401278:	429a      	cmp	r2, r3
-  40127a:	d21e      	bcs.n	4012ba <output_state_machine+0xca>
+  401274:	4a16      	ldr	r2, [pc, #88]	; (4012d0 <output_state_machine+0xdc>)
+  401276:	eb02 01c1 	add.w	r1, r2, r1, lsl #3
+  40127a:	790a      	ldrb	r2, [r1, #4]
+  40127c:	429a      	cmp	r2, r3
+  40127e:	d21e      	bcs.n	4012be <output_state_machine+0xca>
 			output_channel->overcurrent_time++;
-  40127c:	6803      	ldr	r3, [r0, #0]
-  40127e:	3301      	adds	r3, #1
-  401280:	6003      	str	r3, [r0, #0]
+  401280:	6803      	ldr	r3, [r0, #0]
+  401282:	3301      	adds	r3, #1
+  401284:	6003      	str	r3, [r0, #0]
 	return NO_REQUEST;
-  401282:	2000      	movs	r0, #0
-  401284:	e7c9      	b.n	40121a <output_state_machine+0x2a>
+  401286:	2000      	movs	r0, #0
+  401288:	e7c9      	b.n	40121e <output_state_machine+0x2a>
 		if(!Tst_bits(enable_mask, 1<<chan_num)) 			return OFF_REQUEST;
-  401286:	2301      	movs	r3, #1
-  401288:	fa03 f101 	lsl.w	r1, r3, r1
-  40128c:	4b0d      	ldr	r3, [pc, #52]	; (4012c4 <output_state_machine+0xd4>)
-  40128e:	681b      	ldr	r3, [r3, #0]
-  401290:	4219      	tst	r1, r3
-  401292:	d014      	beq.n	4012be <output_state_machine+0xce>
+  40128a:	2301      	movs	r3, #1
+  40128c:	fa03 f101 	lsl.w	r1, r3, r1
+  401290:	4b0d      	ldr	r3, [pc, #52]	; (4012c8 <output_state_machine+0xd4>)
+  401292:	681b      	ldr	r3, [r3, #0]
+  401294:	4219      	tst	r1, r3
+  401296:	d014      	beq.n	4012c2 <output_state_machine+0xce>
 		else if(Tst_bits(soft_restart_mask, 1<<chan_num))	return ON_REQUEST;
-  401294:	4b0e      	ldr	r3, [pc, #56]	; (4012d0 <output_state_machine+0xe0>)
-  401296:	681b      	ldr	r3, [r3, #0]
-  401298:	4019      	ands	r1, r3
+  401298:	4b0e      	ldr	r3, [pc, #56]	; (4012d4 <output_state_machine+0xe0>)
+  40129a:	681b      	ldr	r3, [r3, #0]
+  40129c:	4019      	ands	r1, r3
 	return NO_REQUEST;
-  40129a:	2900      	cmp	r1, #0
-  40129c:	bf14      	ite	ne
-  40129e:	2002      	movne	r0, #2
-  4012a0:	2000      	moveq	r0, #0
-  4012a2:	e7ba      	b.n	40121a <output_state_machine+0x2a>
+  40129e:	2900      	cmp	r1, #0
+  4012a0:	bf14      	ite	ne
+  4012a2:	2002      	movne	r0, #2
+  4012a4:	2000      	moveq	r0, #0
+  4012a6:	e7ba      	b.n	40121e <output_state_machine+0x2a>
 		if(Tst_bits(soft_restart_mask, 1<<chan_num)) return CLEAR_FAULT_TRANSITION;
-  4012a4:	4b0a      	ldr	r3, [pc, #40]	; (4012d0 <output_state_machine+0xe0>)
-  4012a6:	681a      	ldr	r2, [r3, #0]
-  4012a8:	2301      	movs	r3, #1
-  4012aa:	fa03 f101 	lsl.w	r1, r3, r1
-  4012ae:	4011      	ands	r1, r2
+  4012a8:	4b0a      	ldr	r3, [pc, #40]	; (4012d4 <output_state_machine+0xe0>)
+  4012aa:	681a      	ldr	r2, [r3, #0]
+  4012ac:	2301      	movs	r3, #1
+  4012ae:	fa03 f101 	lsl.w	r1, r3, r1
+  4012b2:	4011      	ands	r1, r2
 	return NO_REQUEST;
-  4012b0:	2900      	cmp	r1, #0
-  4012b2:	bf14      	ite	ne
-  4012b4:	2006      	movne	r0, #6
-  4012b6:	2000      	moveq	r0, #0
-  4012b8:	e7af      	b.n	40121a <output_state_machine+0x2a>
-  4012ba:	2000      	movs	r0, #0
-  4012bc:	e7ad      	b.n	40121a <output_state_machine+0x2a>
+  4012b4:	2900      	cmp	r1, #0
+  4012b6:	bf14      	ite	ne
+  4012b8:	2006      	movne	r0, #6
+  4012ba:	2000      	moveq	r0, #0
+  4012bc:	e7af      	b.n	40121e <output_state_machine+0x2a>
+  4012be:	2000      	movs	r0, #0
+  4012c0:	e7ad      	b.n	40121e <output_state_machine+0x2a>
 		if(!Tst_bits(enable_mask, 1<<chan_num)) 			return OFF_REQUEST;
-  4012be:	2001      	movs	r0, #1
-  4012c0:	e7ab      	b.n	40121a <output_state_machine+0x2a>
-  4012c2:	bf00      	nop
-  4012c4:	2000c388 	.word	0x2000c388
-  4012c8:	2000c38c 	.word	0x2000c38c
-  4012cc:	2000c854 	.word	0x2000c854
-  4012d0:	2000c394 	.word	0x2000c394
+  4012c2:	2001      	movs	r0, #1
+  4012c4:	e7ab      	b.n	40121e <output_state_machine+0x2a>
+  4012c6:	bf00      	nop
+  4012c8:	2000c380 	.word	0x2000c380
+  4012cc:	2000c384 	.word	0x2000c384
+  4012d0:	2000c850 	.word	0x2000c850
+  4012d4:	2000c390 	.word	0x2000c390
 
-004012d4 <get_is>:
+004012d8 <get_is>:
  *	scale factor to get the desired significant digit, ie scale factor of 10 encodes 7.3 as 73 
  *	for CAN Bus transmitting
  *
  *	If the current conversion detects a fault returns uint8_t_MAX
  */
 void get_is( Afec *const afec ,enum afec_channel_num pdu_channel, is_config_t channel_is_config, uint8_t* current ){	
-  4012d4:	b082      	sub	sp, #8
-  4012d6:	e88d 000c 	stmia.w	sp, {r2, r3}
+  4012d8:	b082      	sub	sp, #8
+  4012da:	e88d 000c 	stmia.w	sp, {r2, r3}
 	
 	while(  !(afec_get_interrupt_status( afec ) & ( 1 << pdu_channel )));
-  4012da:	2201      	movs	r2, #1
-  4012dc:	408a      	lsls	r2, r1
+  4012de:	2201      	movs	r2, #1
+  4012e0:	408a      	lsls	r2, r1
  *
  * \return The interrupt status value.
  */
 static inline uint32_t afec_get_interrupt_status(Afec *const afec)
 {
 	return afec->AFEC_ISR;
-  4012de:	6b03      	ldr	r3, [r0, #48]	; 0x30
-  4012e0:	421a      	tst	r2, r3
-  4012e2:	d0fc      	beq.n	4012de <get_is+0xa>
+  4012e2:	6b03      	ldr	r3, [r0, #48]	; 0x30
+  4012e4:	421a      	tst	r2, r3
+  4012e6:	d0fc      	beq.n	4012e2 <get_is+0xa>
 	afec->AFEC_CSELR = afec_ch;
-  4012e4:	6641      	str	r1, [r0, #100]	; 0x64
+  4012e8:	6641      	str	r1, [r0, #100]	; 0x64
 	return afec->AFEC_CDR;
-  4012e6:	ed90 7a1a 	vldr	s14, [r0, #104]	; 0x68
+  4012ea:	ed90 7a1a 	vldr	s14, [r0, #104]	; 0x68
 	float conversion_result = afec_channel_get_value( afec, pdu_channel );
-  4012ea:	eeb8 7a47 	vcvt.f32.u32	s14, s14
+  4012ee:	eeb8 7a47 	vcvt.f32.u32	s14, s14
 	
 	//transform AFEC result into mV
 	conversion_result = conversion_result * AFEC_conversion_factor_mV;
-  4012ee:	eddf 7a1a 	vldr	s15, [pc, #104]	; 401358 <get_is+0x84>
-  4012f2:	ee27 7a27 	vmul.f32	s14, s14, s15
+  4012f2:	eddf 7a1a 	vldr	s15, [pc, #104]	; 40135c <get_is+0x84>
+  4012f6:	ee27 7a27 	vmul.f32	s14, s14, s15
 	conversion_result = conversion_result - channel_is_config.offset;
-  4012f6:	eddd 7a02 	vldr	s15, [sp, #8]
-  4012fa:	eef8 7a67 	vcvt.f32.u32	s15, s15
-  4012fe:	ee37 7a67 	vsub.f32	s14, s14, s15
+  4012fa:	eddd 7a02 	vldr	s15, [sp, #8]
+  4012fe:	eef8 7a67 	vcvt.f32.u32	s15, s15
+  401302:	ee37 7a67 	vsub.f32	s14, s14, s15
 	 //*  indication, this is either a short circuit event or fet is over temp
 	 //*/
 	//if ( conversion_result > IS_FAULT_MIN_HC) *current = UINT8_MAX; // should change this behaviour because this could also be a valid returned value after value is scaled
 	
 	//transform into number of mA
 	conversion_result = conversion_result / channel_is_config.conversion_factor;
-  401302:	eddd 7a01 	vldr	s15, [sp, #4]
-  401306:	eef8 6a67 	vcvt.f32.u32	s13, s15
-  40130a:	eec7 7a26 	vdiv.f32	s15, s14, s13
+  401306:	eddd 7a01 	vldr	s15, [sp, #4]
+  40130a:	eef8 6a67 	vcvt.f32.u32	s13, s15
+  40130e:	eec7 7a26 	vdiv.f32	s15, s14, s13
 	
 	//multiply by differential ratio to find load A
 	conversion_result = conversion_result * channel_is_config.follower_ratio;
-  40130e:	ed9d 7a00 	vldr	s14, [sp]
-  401312:	ee27 7a87 	vmul.f32	s14, s15, s14
+  401312:	ed9d 7a00 	vldr	s14, [sp]
+  401316:	ee27 7a87 	vmul.f32	s14, s15, s14
 	conversion_result = conversion_result * channel_is_config.scale_factor;
-  401316:	f89d 3010 	ldrb.w	r3, [sp, #16]
-  40131a:	ee07 3a90 	vmov	s15, r3
-  40131e:	eef8 7ae7 	vcvt.f32.s32	s15, s15
-  401322:	ee67 7a87 	vmul.f32	s15, s15, s14
+  40131a:	f89d 3010 	ldrb.w	r3, [sp, #16]
+  40131e:	ee07 3a90 	vmov	s15, r3
+  401322:	eef8 7ae7 	vcvt.f32.s32	s15, s15
+  401326:	ee67 7a87 	vmul.f32	s15, s15, s14
 		
 	//if the converted amperage is 0 or negative due to not perfect offset calibration
 	conversion_result = max(0, conversion_result);
-  401326:	eef5 7ac0 	vcmpe.f32	s15, #0.0
-  40132a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
-  40132e:	d410      	bmi.n	401352 <get_is+0x7e>
+  40132a:	eef5 7ac0 	vcmpe.f32	s15, #0.0
+  40132e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+  401332:	d410      	bmi.n	401356 <get_is+0x7e>
 	//clamp value to size of data structure
 	conversion_result = min(UINT8_MAX+1, conversion_result);
-  401330:	ed9f 7a0a 	vldr	s14, [pc, #40]	; 40135c <get_is+0x88>
-  401334:	eef4 7a47 	vcmp.f32	s15, s14
-  401338:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
-  40133c:	bfc8      	it	gt
-  40133e:	eef0 7a47 	vmovgt.f32	s15, s14
+  401334:	ed9f 7a0a 	vldr	s14, [pc, #40]	; 401360 <get_is+0x88>
+  401338:	eef4 7a47 	vcmp.f32	s15, s14
+  40133c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+  401340:	bfc8      	it	gt
+  401342:	eef0 7a47 	vmovgt.f32	s15, s14
 	/*
 	 *	return the converted value
 	 *	The value is multiplied by the desired scale factor
 	 *	to transmit the desired significant digits
 	 */
 	(*current) = (uint8_t)conversion_result;
-  401342:	eefc 7ae7 	vcvt.u32.f32	s15, s15
-  401346:	ee17 3a90 	vmov	r3, s15
-  40134a:	9a05      	ldr	r2, [sp, #20]
-  40134c:	7013      	strb	r3, [r2, #0]
+  401346:	eefc 7ae7 	vcvt.u32.f32	s15, s15
+  40134a:	ee17 3a90 	vmov	r3, s15
+  40134e:	9a05      	ldr	r2, [sp, #20]
+  401350:	7013      	strb	r3, [r2, #0]
 	}
-  40134e:	b002      	add	sp, #8
-  401350:	4770      	bx	lr
+  401352:	b002      	add	sp, #8
+  401354:	4770      	bx	lr
 	conversion_result = max(0, conversion_result);
-  401352:	eddf 7a03 	vldr	s15, [pc, #12]	; 401360 <get_is+0x8c>
-  401356:	e7f4      	b.n	401342 <get_is+0x6e>
-  401358:	3d4e4ce5 	.word	0x3d4e4ce5
-  40135c:	43800000 	.word	0x43800000
-	...
+  401356:	eddf 7a03 	vldr	s15, [pc, #12]	; 401364 <get_is+0x8c>
+  40135a:	e7f4      	b.n	401346 <get_is+0x6e>
+  40135c:	3d4e4ce5 	.word	0x3d4e4ce5
+  401360:	43800000 	.word	0x43800000
+  401364:	00000000 	.word	0x00000000
 
 00401368 <get_fet_temp>:
 	
@@ -3495,27 +3496,27 @@ void HC_thread(void* pvParameters){
   401910:	004086f8 	.word	0x004086f8
   401914:	00403d85 	.word	0x00403d85
   401918:	00403805 	.word	0x00403805
-  40191c:	2000c770 	.word	0x2000c770
+  40191c:	2000c76c 	.word	0x2000c76c
   401920:	400b0000 	.word	0x400b0000
   401924:	00408728 	.word	0x00408728
   401928:	0040282d 	.word	0x0040282d
-  40192c:	20000018 	.word	0x20000018
+  40192c:	2000c38c 	.word	0x2000c38c
   401930:	00402811 	.word	0x00402811
   401934:	00403b05 	.word	0x00403b05
-  401938:	2000c5f0 	.word	0x2000c5f0
+  401938:	2000c5ec 	.word	0x2000c5ec
   40193c:	400e0e00 	.word	0x400e0e00
   401940:	00403a59 	.word	0x00403a59
   401944:	00403269 	.word	0x00403269
   401948:	00408644 	.word	0x00408644
-  40194c:	004012d5 	.word	0x004012d5
+  40194c:	004012d9 	.word	0x004012d9
   401950:	00401369 	.word	0x00401369
   401954:	00403075 	.word	0x00403075
-  401958:	004011f1 	.word	0x004011f1
+  401958:	004011f5 	.word	0x004011f5
   40195c:	00402837 	.word	0x00402837
-  401960:	2000c38c 	.word	0x2000c38c
+  401960:	2000c384 	.word	0x2000c384
   401964:	00401605 	.word	0x00401605
-  401968:	2000c854 	.word	0x2000c854
-  40196c:	2000c850 	.word	0x2000c850
+  401968:	2000c850 	.word	0x2000c850
+  40196c:	2000c84c 	.word	0x2000c84c
   401970:	0040863c 	.word	0x0040863c
 
 00401974 <LC_thread>:
@@ -3844,12 +3845,12 @@ void LC_thread(void* pvParameters){
   401bf6:	e72a      	b.n	401a4e <LC_thread+0xda>
   401bf8:	40b00000 	.word	0x40b00000
   401bfc:	00408654 	.word	0x00408654
-  401c00:	2000c5f0 	.word	0x2000c5f0
-  401c04:	2000c854 	.word	0x2000c854
+  401c00:	2000c5ec 	.word	0x2000c5ec
+  401c04:	2000c850 	.word	0x2000c850
   401c08:	004086f8 	.word	0x004086f8
   401c0c:	00403d85 	.word	0x00403d85
   401c10:	00403805 	.word	0x00403805
-  401c14:	2000c5e8 	.word	0x2000c5e8
+  401c14:	2000c5e4 	.word	0x2000c5e4
   401c18:	004086c4 	.word	0x004086c4
   401c1c:	00403a59 	.word	0x00403a59
   401c20:	00403269 	.word	0x00403269
@@ -3857,10 +3858,10 @@ void LC_thread(void* pvParameters){
   401c28:	00408684 	.word	0x00408684
   401c2c:	0040864c 	.word	0x0040864c
   401c30:	400b4000 	.word	0x400b4000
-  401c34:	004012d5 	.word	0x004012d5
+  401c34:	004012d9 	.word	0x004012d9
   401c38:	00403075 	.word	0x00403075
-  401c3c:	004011f1 	.word	0x004011f1
-  401c40:	2000c38c 	.word	0x2000c38c
+  401c3c:	004011f5 	.word	0x004011f5
+  401c40:	2000c384 	.word	0x2000c384
   401c44:	00401605 	.word	0x00401605
   401c48:	00403b05 	.word	0x00403b05
   401c4c:	00000000 	.word	0x00000000
@@ -4057,17 +4058,17 @@ void transmit_status(void* pvParameters){
   401d80:	851eb852 	.word	0x851eb852
   401d84:	402851eb 	.word	0x402851eb
   401d88:	00403805 	.word	0x00403805
-  401d8c:	2000c414 	.word	0x2000c414
+  401d8c:	2000c410 	.word	0x2000c410
   401d90:	00408748 	.word	0x00408748
   401d94:	40010000 	.word	0x40010000
   401d98:	00402495 	.word	0x00402495
   401d9c:	004023a3 	.word	0x004023a3
   401da0:	00403a59 	.word	0x00403a59
-  401da4:	2000c380 	.word	0x2000c380
+  401da4:	2000c378 	.word	0x2000c378
   401da8:	004048ed 	.word	0x004048ed
   401dac:	00404c0d 	.word	0x00404c0d
   401db0:	00404ddd 	.word	0x00404ddd
-  401db4:	2000c388 	.word	0x2000c388
+  401db4:	2000c380 	.word	0x2000c380
 
 00401db8 <transmit_output_current>:
 		}
@@ -4189,8 +4190,8 @@ void transmit_output_current(void* pvParameters){
   401e74:	e7f5      	b.n	401e62 <transmit_output_current+0xaa>
   401e76:	bf00      	nop
   401e78:	00403805 	.word	0x00403805
-  401e7c:	2000c414 	.word	0x2000c414
-  401e80:	2000c5f0 	.word	0x2000c5f0
+  401e7c:	2000c410 	.word	0x2000c410
+  401e80:	2000c5ec 	.word	0x2000c5ec
   401e84:	00402495 	.word	0x00402495
   401e88:	004023a3 	.word	0x004023a3
   401e8c:	00403a59 	.word	0x00403a59
@@ -4318,8 +4319,8 @@ void transmit_output_state(void* pvParameters){
   401f64:	e7f5      	b.n	401f52 <transmit_output_state+0xbe>
   401f66:	bf00      	nop
   401f68:	00403805 	.word	0x00403805
-  401f6c:	2000c414 	.word	0x2000c414
-  401f70:	2000c5f0 	.word	0x2000c5f0
+  401f6c:	2000c410 	.word	0x2000c410
+  401f70:	2000c5ec 	.word	0x2000c5ec
   401f74:	00402495 	.word	0x00402495
   401f78:	004023a3 	.word	0x004023a3
   401f7c:	00403a59 	.word	0x00403a59
@@ -4333,7 +4334,7 @@ void transmit_output_state(void* pvParameters){
 void ECU_timeout_callback(void){
 	
 	enable_mask = PDU_TIMEOUT_MASK;
-  401f88:	2200      	movs	r2, #0
+  401f88:	2248      	movs	r2, #72	; 0x48
   401f8a:	4b03      	ldr	r3, [pc, #12]	; (401f98 <ECU_timeout_callback+0x10>)
   401f8c:	601a      	str	r2, [r3, #0]
 	PDU.error_flag = true;
@@ -4342,8 +4343,8 @@ void ECU_timeout_callback(void){
   401f92:	715a      	strb	r2, [r3, #5]
   401f94:	4770      	bx	lr
   401f96:	bf00      	nop
-  401f98:	2000c388 	.word	0x2000c388
-  401f9c:	2000c380 	.word	0x2000c380
+  401f98:	2000c380 	.word	0x2000c380
+  401f9c:	2000c378 	.word	0x2000c378
 
 00401fa0 <system_task>:
 void system_task(void* pvParameters){
@@ -4484,11 +4485,11 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
   402096:	e7c6      	b.n	402026 <system_task+0x86>
   402098:	00403805 	.word	0x00403805
   40209c:	400e0e00 	.word	0x400e0e00
-  4020a0:	2000c382 	.word	0x2000c382
+  4020a0:	2000c37a 	.word	0x2000c37a
   4020a4:	004037f5 	.word	0x004037f5
   4020a8:	00400165 	.word	0x00400165
   4020ac:	00402837 	.word	0x00402837
-  4020b0:	2000c380 	.word	0x2000c380
+  4020b0:	2000c378 	.word	0x2000c378
   4020b4:	00408740 	.word	0x00408740
   4020b8:	00408738 	.word	0x00408738
   4020bc:	20000014 	.word	0x20000014
@@ -4496,11 +4497,11 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
   4020c4:	00403269 	.word	0x00403269
   4020c8:	004014cd 	.word	0x004014cd
   4020cc:	00401435 	.word	0x00401435
-  4020d0:	2000c39c 	.word	0x2000c39c
-  4020d4:	2000c38c 	.word	0x2000c38c
-  4020d8:	2000c390 	.word	0x2000c390
+  4020d0:	2000c398 	.word	0x2000c398
+  4020d4:	2000c384 	.word	0x2000c384
+  4020d8:	2000c388 	.word	0x2000c388
   4020dc:	00401f89 	.word	0x00401f89
-  4020e0:	2000c850 	.word	0x2000c850
+  4020e0:	2000c84c 	.word	0x2000c84c
   4020e4:	00403075 	.word	0x00403075
 
 004020e8 <afec_process_callback>:
@@ -4617,7 +4618,7 @@ static inline uint32_t afec_get_interrupt_mask(Afec *const afec)
   402178:	bd70      	pop	{r4, r5, r6, pc}
   40217a:	bf00      	nop
   40217c:	400b4000 	.word	0x400b4000
-  402180:	2000c524 	.word	0x2000c524
+  402180:	2000c520 	.word	0x2000c520
 
 00402184 <afec_ch_set_config>:
 {
@@ -4844,8 +4845,8 @@ static inline uint32_t afec_get_interrupt_mask(Afec *const afec)
   4022da:	bf00      	nop
   4022dc:	400b0000 	.word	0x400b0000
   4022e0:	400b4000 	.word	0x400b4000
-  4022e4:	2000c520 	.word	0x2000c520
-  4022e8:	2000c57c 	.word	0x2000c57c
+  4022e4:	2000c51c 	.word	0x2000c51c
+  4022e8:	2000c578 	.word	0x2000c578
 
 004022ec <AFEC0_Handler>:
 
@@ -4976,7 +4977,7 @@ static inline void cpu_irq_restore(irqflags_t flags)
   402366:	bf00      	nop
   402368:	400b4000 	.word	0x400b4000
   40236c:	004006c1 	.word	0x004006c1
-  402370:	2000c51c 	.word	0x2000c51c
+  402370:	2000c518 	.word	0x2000c518
   402374:	2000000a 	.word	0x2000000a
 
 00402378 <can_disable_autobaud_listen_mode>:
@@ -5519,8 +5520,8 @@ static inline void cpu_irq_restore(irqflags_t flags)
   402892:	4680      	mov	r8, r0
   402894:	e7f7      	b.n	402886 <_read+0x22>
   402896:	bf00      	nop
-  402898:	2000c5e4 	.word	0x2000c5e4
-  40289c:	2000c5dc 	.word	0x2000c5dc
+  402898:	2000c5e0 	.word	0x2000c5e0
+  40289c:	2000c5d8 	.word	0x2000c5d8
 
 004028a0 <_write>:
   4028a0:	3801      	subs	r0, #1
@@ -5550,8 +5551,8 @@ static inline void cpu_irq_restore(irqflags_t flags)
   4028de:	f04f 30ff 	mov.w	r0, #4294967295
   4028e2:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
   4028e6:	bf00      	nop
-  4028e8:	2000c5e0 	.word	0x2000c5e0
-  4028ec:	2000c5e4 	.word	0x2000c5e4
+  4028e8:	2000c5dc 	.word	0x2000c5dc
+  4028ec:	2000c5e0 	.word	0x2000c5e0
 
 004028f0 <uart_init>:
   4028f0:	b410      	push	{r4}
@@ -5926,7 +5927,7 @@ static void vPortEnableVFP( void )
   402acc:	f3af 8000 	nop.w
 
 00402ad0 <pxCurrentTCBConst2>:
-  402ad0:	2000c27c 	.word	0x2000c27c
+  402ad0:	2000c274 	.word	0x2000c274
 
 00402ad4 <vPortEnterCritical>:
   402ad4:	f04f 0350 	mov.w	r3, #80	; 0x50
@@ -6012,7 +6013,7 @@ static void vPortEnableVFP( void )
   402bac:	f3af 8000 	nop.w
 
 00402bb0 <pxCurrentTCBConst>:
-  402bb0:	2000c27c 	.word	0x2000c27c
+  402bb0:	2000c274 	.word	0x2000c274
 
 00402bb4 <SysTick_Handler>:
 {
@@ -6187,8 +6188,8 @@ static void vPortEnableVFP( void )
   402d04:	410fc271 	.word	0x410fc271
   402d08:	410fc270 	.word	0x410fc270
   402d0c:	e000e400 	.word	0xe000e400
-  402d10:	20000a6c 	.word	0x20000a6c
-  402d14:	20000a70 	.word	0x20000a70
+  402d10:	20000a64 	.word	0x20000a64
+  402d14:	20000a68 	.word	0x20000a68
   402d18:	e000ed20 	.word	0xe000ed20
   402d1c:	00402be5 	.word	0x00402be5
   402d20:	20000010 	.word	0x20000010
@@ -6293,10 +6294,10 @@ static uint8_t *pucAlignedHeap = NULL;
 	return pvReturn;
   402d8e:	e7f1      	b.n	402d74 <pvPortMalloc+0x3c>
   402d90:	004037f5 	.word	0x004037f5
-  402d94:	20000a74 	.word	0x20000a74
-  402d98:	2000c278 	.word	0x2000c278
+  402d94:	20000a6c 	.word	0x20000a6c
+  402d98:	2000c270 	.word	0x2000c270
   402d9c:	00403945 	.word	0x00403945
-  402da0:	20000a80 	.word	0x20000a80
+  402da0:	20000a78 	.word	0x20000a78
   402da4:	00404133 	.word	0x00404133
 
 00402da8 <vPortFree>:
@@ -7251,8 +7252,8 @@ TCB_t *pxTCB;
   40343e:	601a      	str	r2, [r3, #0]
   403440:	4770      	bx	lr
   403442:	bf00      	nop
-  403444:	2000c280 	.word	0x2000c280
-  403448:	2000c330 	.word	0x2000c330
+  403444:	2000c278 	.word	0x2000c278
+  403448:	2000c328 	.word	0x2000c328
 
 0040344c <prvAddCurrentTaskToDelayedList>:
 #endif /* configUSE_TASK_NOTIFICATIONS */
@@ -7366,16 +7367,16 @@ const TickType_t xConstTickCount = xTickCount;
   4034c2:	4798      	blx	r3
   4034c4:	bd70      	pop	{r4, r5, r6, pc}
   4034c6:	bf00      	nop
-  4034c8:	2000c378 	.word	0x2000c378
-  4034cc:	2000c27c 	.word	0x2000c27c
+  4034c8:	2000c370 	.word	0x2000c370
+  4034cc:	2000c274 	.word	0x2000c274
   4034d0:	004029df 	.word	0x004029df
-  4034d4:	2000c300 	.word	0x2000c300
-  4034d8:	2000c280 	.word	0x2000c280
+  4034d4:	2000c2f8 	.word	0x2000c2f8
+  4034d8:	2000c278 	.word	0x2000c278
   4034dc:	004029ab 	.word	0x004029ab
-  4034e0:	2000c330 	.word	0x2000c330
-  4034e4:	2000c350 	.word	0x2000c350
+  4034e0:	2000c328 	.word	0x2000c328
+  4034e4:	2000c348 	.word	0x2000c348
   4034e8:	00402993 	.word	0x00402993
-  4034ec:	2000c284 	.word	0x2000c284
+  4034ec:	2000c27c 	.word	0x2000c27c
 
 004034f0 <prvIdleTask>:
 {
@@ -7440,13 +7441,13 @@ const TickType_t xConstTickCount = xTickCount;
   40354c:	f3bf 8f6f 	isb	sy
   403550:	e7d5      	b.n	4034fe <prvIdleTask+0xe>
   403552:	bf00      	nop
-  403554:	2000c2f0 	.word	0x2000c2f0
+  403554:	2000c2e8 	.word	0x2000c2e8
   403558:	00404131 	.word	0x00404131
-  40355c:	2000c364 	.word	0x2000c364
+  40355c:	2000c35c 	.word	0x2000c35c
   403560:	004029df 	.word	0x004029df
-  403564:	2000c2ec 	.word	0x2000c2ec
+  403564:	2000c2e4 	.word	0x2000c2e4
   403568:	00402b19 	.word	0x00402b19
-  40356c:	2000c288 	.word	0x2000c288
+  40356c:	2000c280 	.word	0x2000c280
   403570:	00402ad5 	.word	0x00402ad5
   403574:	e000ed04 	.word	0xe000ed04
   403578:	00402da9 	.word	0x00402da9
@@ -7689,24 +7690,24 @@ const TickType_t xConstTickCount = xTickCount;
   403718:	00405649 	.word	0x00405649
   40371c:	00402a81 	.word	0x00402a81
   403720:	00402ad5 	.word	0x00402ad5
-  403724:	2000c2ec 	.word	0x2000c2ec
-  403728:	2000c27c 	.word	0x2000c27c
-  40372c:	2000c34c 	.word	0x2000c34c
-  403730:	2000c2fc 	.word	0x2000c2fc
-  403734:	2000c300 	.word	0x2000c300
-  403738:	2000c288 	.word	0x2000c288
+  403724:	2000c2e4 	.word	0x2000c2e4
+  403728:	2000c274 	.word	0x2000c274
+  40372c:	2000c344 	.word	0x2000c344
+  403730:	2000c2f4 	.word	0x2000c2f4
+  403734:	2000c2f8 	.word	0x2000c2f8
+  403738:	2000c280 	.word	0x2000c280
   40373c:	00402993 	.word	0x00402993
   403740:	00402b19 	.word	0x00402b19
   403744:	e000ed04 	.word	0xe000ed04
   403748:	00402da9 	.word	0x00402da9
   40374c:	00402977 	.word	0x00402977
-  403750:	2000c304 	.word	0x2000c304
-  403754:	2000c318 	.word	0x2000c318
-  403758:	2000c338 	.word	0x2000c338
-  40375c:	2000c364 	.word	0x2000c364
-  403760:	2000c350 	.word	0x2000c350
-  403764:	2000c280 	.word	0x2000c280
-  403768:	2000c284 	.word	0x2000c284
+  403750:	2000c2fc 	.word	0x2000c2fc
+  403754:	2000c310 	.word	0x2000c310
+  403758:	2000c330 	.word	0x2000c330
+  40375c:	2000c35c 	.word	0x2000c35c
+  403760:	2000c348 	.word	0x2000c348
+  403764:	2000c278 	.word	0x2000c278
+  403768:	2000c27c 	.word	0x2000c27c
   40376c:	0040298d 	.word	0x0040298d
 
 00403770 <vTaskStartScheduler>:
@@ -7758,13 +7759,13 @@ const TickType_t xConstTickCount = xTickCount;
   4037cc:	f3bf 8f4f 	dsb	sy
   4037d0:	e7fe      	b.n	4037d0 <vTaskStartScheduler+0x60>
   4037d2:	bf00      	nop
-  4037d4:	2000c32c 	.word	0x2000c32c
+  4037d4:	2000c324 	.word	0x2000c324
   4037d8:	004087e8 	.word	0x004087e8
   4037dc:	004034f1 	.word	0x004034f1
   4037e0:	0040357d 	.word	0x0040357d
-  4037e4:	2000c330 	.word	0x2000c330
-  4037e8:	2000c34c 	.word	0x2000c34c
-  4037ec:	2000c378 	.word	0x2000c378
+  4037e4:	2000c328 	.word	0x2000c328
+  4037e8:	2000c344 	.word	0x2000c344
+  4037ec:	2000c370 	.word	0x2000c370
   4037f0:	00402c0d 	.word	0x00402c0d
 
 004037f4 <vTaskSuspendAll>:
@@ -7775,7 +7776,7 @@ const TickType_t xConstTickCount = xTickCount;
   4037fa:	6013      	str	r3, [r2, #0]
   4037fc:	4770      	bx	lr
   4037fe:	bf00      	nop
-  403800:	2000c2f8 	.word	0x2000c2f8
+  403800:	2000c2f0 	.word	0x2000c2f0
 
 00403804 <xTaskGetTickCount>:
 		xTicks = xTickCount;
@@ -7784,7 +7785,7 @@ const TickType_t xConstTickCount = xTickCount;
 }
   403808:	4770      	bx	lr
   40380a:	bf00      	nop
-  40380c:	2000c378 	.word	0x2000c378
+  40380c:	2000c370 	.word	0x2000c370
 
 00403810 <xTaskIncrementTick>:
 {
@@ -7929,19 +7930,19 @@ BaseType_t xSwitchRequired = pdFALSE;
   403904:	2001      	movne	r0, #1
   403906:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
   40390a:	bf00      	nop
-  40390c:	2000c2f8 	.word	0x2000c2f8
-  403910:	2000c378 	.word	0x2000c378
-  403914:	2000c280 	.word	0x2000c280
-  403918:	2000c284 	.word	0x2000c284
-  40391c:	2000c334 	.word	0x2000c334
+  40390c:	2000c2f0 	.word	0x2000c2f0
+  403910:	2000c370 	.word	0x2000c370
+  403914:	2000c278 	.word	0x2000c278
+  403918:	2000c27c 	.word	0x2000c27c
+  40391c:	2000c32c 	.word	0x2000c32c
   403920:	00403421 	.word	0x00403421
-  403924:	2000c330 	.word	0x2000c330
-  403928:	2000c27c 	.word	0x2000c27c
-  40392c:	2000c288 	.word	0x2000c288
-  403930:	2000c300 	.word	0x2000c300
+  403924:	2000c328 	.word	0x2000c328
+  403928:	2000c274 	.word	0x2000c274
+  40392c:	2000c280 	.word	0x2000c280
+  403930:	2000c2f8 	.word	0x2000c2f8
   403934:	00402993 	.word	0x00402993
-  403938:	2000c2f4 	.word	0x2000c2f4
-  40393c:	2000c37c 	.word	0x2000c37c
+  403938:	2000c2ec 	.word	0x2000c2ec
+  40393c:	2000c374 	.word	0x2000c374
   403940:	004029df 	.word	0x004029df
 
 00403944 <xTaskResumeAll>:
@@ -8073,19 +8074,19 @@ BaseType_t xAlreadyYielded = pdFALSE;
   403a16:	e7b0      	b.n	40397a <xTaskResumeAll+0x36>
   403a18:	2400      	movs	r4, #0
   403a1a:	e7ae      	b.n	40397a <xTaskResumeAll+0x36>
-  403a1c:	2000c2f8 	.word	0x2000c2f8
+  403a1c:	2000c2f0 	.word	0x2000c2f0
   403a20:	00402ad5 	.word	0x00402ad5
-  403a24:	2000c2ec 	.word	0x2000c2ec
+  403a24:	2000c2e4 	.word	0x2000c2e4
   403a28:	00402b19 	.word	0x00402b19
-  403a2c:	2000c338 	.word	0x2000c338
+  403a2c:	2000c330 	.word	0x2000c330
   403a30:	004029df 	.word	0x004029df
-  403a34:	2000c300 	.word	0x2000c300
-  403a38:	2000c288 	.word	0x2000c288
+  403a34:	2000c2f8 	.word	0x2000c2f8
+  403a38:	2000c280 	.word	0x2000c280
   403a3c:	00402993 	.word	0x00402993
-  403a40:	2000c27c 	.word	0x2000c27c
-  403a44:	2000c37c 	.word	0x2000c37c
+  403a40:	2000c274 	.word	0x2000c274
+  403a44:	2000c374 	.word	0x2000c374
   403a48:	00403421 	.word	0x00403421
-  403a4c:	2000c2f4 	.word	0x2000c2f4
+  403a4c:	2000c2ec 	.word	0x2000c2ec
   403a50:	00403811 	.word	0x00403811
   403a54:	e000ed04 	.word	0xe000ed04
 
@@ -8167,9 +8168,9 @@ BaseType_t xAlreadyYielded = pdFALSE;
   403ae6:	e7e7      	b.n	403ab8 <vTaskDelayUntil+0x60>
   403ae8:	bd38      	pop	{r3, r4, r5, pc}
   403aea:	bf00      	nop
-  403aec:	2000c2f8 	.word	0x2000c2f8
+  403aec:	2000c2f0 	.word	0x2000c2f0
   403af0:	004037f5 	.word	0x004037f5
-  403af4:	2000c378 	.word	0x2000c378
+  403af4:	2000c370 	.word	0x2000c370
   403af8:	0040344d 	.word	0x0040344d
   403afc:	00403945 	.word	0x00403945
   403b00:	e000ed04 	.word	0xe000ed04
@@ -8210,7 +8211,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
   403b40:	f3bf 8f6f 	isb	sy
   403b44:	bd10      	pop	{r4, pc}
   403b46:	bf00      	nop
-  403b48:	2000c2f8 	.word	0x2000c2f8
+  403b48:	2000c2f0 	.word	0x2000c2f0
   403b4c:	004037f5 	.word	0x004037f5
   403b50:	0040344d 	.word	0x0040344d
   403b54:	00403945 	.word	0x00403945
@@ -8291,12 +8292,12 @@ BaseType_t xAlreadyYielded = pdFALSE;
   403bee:	6050      	str	r0, [r2, #4]
   403bf0:	e7ef      	b.n	403bd2 <vTaskSwitchContext+0x76>
   403bf2:	bf00      	nop
-  403bf4:	2000c2f8 	.word	0x2000c2f8
-  403bf8:	2000c37c 	.word	0x2000c37c
-  403bfc:	2000c27c 	.word	0x2000c27c
+  403bf4:	2000c2f0 	.word	0x2000c2f0
+  403bf8:	2000c374 	.word	0x2000c374
+  403bfc:	2000c274 	.word	0x2000c274
   403c00:	00404119 	.word	0x00404119
-  403c04:	2000c300 	.word	0x2000c300
-  403c08:	2000c288 	.word	0x2000c288
+  403c04:	2000c2f8 	.word	0x2000c2f8
+  403c08:	2000c280 	.word	0x2000c280
 
 00403c0c <vTaskPlaceOnEventList>:
 	configASSERT( pxEventList );
@@ -8321,7 +8322,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
   403c32:	4b03      	ldr	r3, [pc, #12]	; (403c40 <vTaskPlaceOnEventList+0x34>)
   403c34:	4798      	blx	r3
   403c36:	bd10      	pop	{r4, pc}
-  403c38:	2000c27c 	.word	0x2000c27c
+  403c38:	2000c274 	.word	0x2000c274
   403c3c:	004029ab 	.word	0x004029ab
   403c40:	0040344d 	.word	0x0040344d
 
@@ -8388,13 +8389,13 @@ BaseType_t xAlreadyYielded = pdFALSE;
   403cb0:	4798      	blx	r3
   403cb2:	e7e6      	b.n	403c82 <xTaskRemoveFromEventList+0x3e>
   403cb4:	004029df 	.word	0x004029df
-  403cb8:	2000c2f8 	.word	0x2000c2f8
-  403cbc:	2000c300 	.word	0x2000c300
-  403cc0:	2000c288 	.word	0x2000c288
+  403cb8:	2000c2f0 	.word	0x2000c2f0
+  403cbc:	2000c2f8 	.word	0x2000c2f8
+  403cc0:	2000c280 	.word	0x2000c280
   403cc4:	00402993 	.word	0x00402993
-  403cc8:	2000c27c 	.word	0x2000c27c
-  403ccc:	2000c37c 	.word	0x2000c37c
-  403cd0:	2000c338 	.word	0x2000c338
+  403cc8:	2000c274 	.word	0x2000c274
+  403ccc:	2000c374 	.word	0x2000c374
+  403cd0:	2000c330 	.word	0x2000c330
 
 00403cd4 <vTaskInternalSetTimeOutState>:
 	pxTimeOut->xOverflowCount = xNumOfOverflows;
@@ -8407,8 +8408,8 @@ BaseType_t xAlreadyYielded = pdFALSE;
   403cde:	6043      	str	r3, [r0, #4]
   403ce0:	4770      	bx	lr
   403ce2:	bf00      	nop
-  403ce4:	2000c334 	.word	0x2000c334
-  403ce8:	2000c378 	.word	0x2000c378
+  403ce4:	2000c32c 	.word	0x2000c32c
+  403ce8:	2000c370 	.word	0x2000c370
 
 00403cec <xTaskCheckForTimeOut>:
 	configASSERT( pxTimeOut );
@@ -8482,8 +8483,8 @@ BaseType_t xAlreadyYielded = pdFALSE;
   403d60:	2401      	movs	r4, #1
   403d62:	e7de      	b.n	403d22 <xTaskCheckForTimeOut+0x36>
   403d64:	00402ad5 	.word	0x00402ad5
-  403d68:	2000c378 	.word	0x2000c378
-  403d6c:	2000c334 	.word	0x2000c334
+  403d68:	2000c370 	.word	0x2000c370
+  403d6c:	2000c32c 	.word	0x2000c32c
   403d70:	00402b19 	.word	0x00402b19
   403d74:	00403cd5 	.word	0x00403cd5
 
@@ -8493,7 +8494,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
   403d7a:	4b01      	ldr	r3, [pc, #4]	; (403d80 <vTaskMissedYield+0x8>)
   403d7c:	601a      	str	r2, [r3, #0]
   403d7e:	4770      	bx	lr
-  403d80:	2000c37c 	.word	0x2000c37c
+  403d80:	2000c374 	.word	0x2000c374
 
 00403d84 <uxTaskGetStackHighWaterMark>:
 		pxTCB = prvGetTCBFromHandle( xTask );
@@ -8520,7 +8521,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
 	uint32_t ulCount = 0U;
   403da8:	2000      	movs	r0, #0
   403daa:	e7f7      	b.n	403d9c <uxTaskGetStackHighWaterMark+0x18>
-  403dac:	2000c27c 	.word	0x2000c27c
+  403dac:	2000c274 	.word	0x2000c274
 
 00403db0 <xTaskPriorityInherit>:
 		if( pxMutexHolder != NULL )
@@ -8616,10 +8617,10 @@ BaseType_t xAlreadyYielded = pdFALSE;
 		return xReturn;
   403e58:	4770      	bx	lr
   403e5a:	bf00      	nop
-  403e5c:	2000c27c 	.word	0x2000c27c
-  403e60:	2000c288 	.word	0x2000c288
+  403e5c:	2000c274 	.word	0x2000c274
+  403e60:	2000c280 	.word	0x2000c280
   403e64:	004029df 	.word	0x004029df
-  403e68:	2000c300 	.word	0x2000c300
+  403e68:	2000c2f8 	.word	0x2000c2f8
   403e6c:	00402993 	.word	0x00402993
 
 00403e70 <xTaskPriorityDisinherit>:
@@ -8708,10 +8709,10 @@ BaseType_t xAlreadyYielded = pdFALSE;
 	}
   403f14:	bd38      	pop	{r3, r4, r5, pc}
   403f16:	bf00      	nop
-  403f18:	2000c27c 	.word	0x2000c27c
+  403f18:	2000c274 	.word	0x2000c274
   403f1c:	004029df 	.word	0x004029df
-  403f20:	2000c288 	.word	0x2000c288
-  403f24:	2000c300 	.word	0x2000c300
+  403f20:	2000c280 	.word	0x2000c280
+  403f24:	2000c2f8 	.word	0x2000c2f8
   403f28:	00402993 	.word	0x00402993
 
 00403f2c <vTaskPriorityDisinheritAfterTimeout>:
@@ -8804,10 +8805,10 @@ BaseType_t xAlreadyYielded = pdFALSE;
   403fda:	e7bf      	b.n	403f5c <vTaskPriorityDisinheritAfterTimeout+0x30>
   403fdc:	4770      	bx	lr
   403fde:	bf00      	nop
-  403fe0:	2000c27c 	.word	0x2000c27c
-  403fe4:	2000c288 	.word	0x2000c288
+  403fe0:	2000c274 	.word	0x2000c274
+  403fe4:	2000c280 	.word	0x2000c280
   403fe8:	004029df 	.word	0x004029df
-  403fec:	2000c300 	.word	0x2000c300
+  403fec:	2000c2f8 	.word	0x2000c2f8
   403ff0:	00402993 	.word	0x00402993
 
 00403ff4 <pvTaskIncrementMutexHeldCount>:
@@ -8827,7 +8828,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
 	}
   404008:	4770      	bx	lr
   40400a:	bf00      	nop
-  40400c:	2000c27c 	.word	0x2000c27c
+  40400c:	2000c274 	.word	0x2000c274
 
 00404010 <usart_serial_getchar>:
  * \param p_usart   Base address of the USART instance.
@@ -9159,17 +9160,17 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   4041c6:	bd70      	pop	{r4, r5, r6, pc}
   4041c8:	004001fd 	.word	0x004001fd
   4041cc:	068e7780 	.word	0x068e7780
-  4041d0:	2000c398 	.word	0x2000c398
+  4041d0:	2000c394 	.word	0x2000c394
   4041d4:	00400265 	.word	0x00400265
   4041d8:	400e0600 	.word	0x400e0600
-  4041dc:	2000c5e4 	.word	0x2000c5e4
+  4041dc:	2000c5e0 	.word	0x2000c5e0
   4041e0:	00404099 	.word	0x00404099
-  4041e4:	2000c5e0 	.word	0x2000c5e0
+  4041e4:	2000c5dc 	.word	0x2000c5dc
   4041e8:	00404011 	.word	0x00404011
-  4041ec:	2000c5dc 	.word	0x2000c5dc
+  4041ec:	2000c5d8 	.word	0x2000c5d8
   4041f0:	004006c1 	.word	0x004006c1
   4041f4:	004028f1 	.word	0x004028f1
-  4041f8:	20000020 	.word	0x20000020
+  4041f8:	20000018 	.word	0x20000018
   4041fc:	00405791 	.word	0x00405791
   404200:	004087f0 	.word	0x004087f0
   404204:	004054ed 	.word	0x004054ed
@@ -9268,7 +9269,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   4042f2:	d1f2      	bne.n	4042da <log10f+0xba>
   4042f4:	e7ed      	b.n	4042d2 <log10f+0xb2>
   4042f6:	bf00      	nop
-  4042f8:	2000001c 	.word	0x2000001c
+  4042f8:	20000015 	.word	0x20000015
   4042fc:	00408824 	.word	0x00408824
   404300:	c7efffff 	.word	0xc7efffff
   404304:	fff00000 	.word	0xfff00000
@@ -10809,7 +10810,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   405492:	6818      	ldr	r0, [r3, #0]
   405494:	4770      	bx	lr
   405496:	bf00      	nop
-  405498:	20000020 	.word	0x20000020
+  405498:	20000018 	.word	0x20000018
 
 0040549c <__libc_init_array>:
   40549c:	b570      	push	{r4, r5, r6, lr}
@@ -10862,7 +10863,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   40550a:	b004      	add	sp, #16
   40550c:	4770      	bx	lr
   40550e:	bf00      	nop
-  405510:	20000020 	.word	0x20000020
+  405510:	20000018 	.word	0x20000018
 
 00405514 <memcpy>:
   405514:	4684      	mov	ip, r0
@@ -11103,7 +11104,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   405784:	6818      	ldr	r0, [r3, #0]
   405786:	f7ff bfad 	b.w	4056e4 <_puts_r>
   40578a:	bf00      	nop
-  40578c:	20000020 	.word	0x20000020
+  40578c:	20000018 	.word	0x20000018
 
 00405790 <setbuf>:
   405790:	2900      	cmp	r1, #0
@@ -11274,7 +11275,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   405926:	e792      	b.n	40584e <setvbuf+0xae>
   405928:	464e      	mov	r6, r9
   40592a:	e783      	b.n	405834 <setvbuf+0x94>
-  40592c:	20000020 	.word	0x20000020
+  40592c:	20000018 	.word	0x20000018
 	...
 
 00405940 <strlen>:
@@ -12737,7 +12738,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   40686c:	f04f 30ff 	mov.w	r0, #4294967295
   406870:	81a2      	strh	r2, [r4, #12]
   406872:	bd38      	pop	{r3, r4, r5, pc}
-  406874:	20000020 	.word	0x20000020
+  406874:	20000018 	.word	0x20000018
 
 00406878 <register_fini>:
   406878:	4b02      	ldr	r3, [pc, #8]	; (406884 <register_fini+0xc>)
@@ -13001,20 +13002,20 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   406ace:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
   406ad2:	f000 bb9b 	b.w	40720c <__retarget_lock_release_recursive>
   406ad6:	bf00      	nop
-  406ad8:	2000c960 	.word	0x2000c960
+  406ad8:	2000c95c 	.word	0x2000c95c
   406adc:	00406a2d 	.word	0x00406a2d
 
 00406ae0 <__sfp_lock_acquire>:
   406ae0:	4801      	ldr	r0, [pc, #4]	; (406ae8 <__sfp_lock_acquire+0x8>)
   406ae2:	f000 bb91 	b.w	407208 <__retarget_lock_acquire_recursive>
   406ae6:	bf00      	nop
-  406ae8:	2000c974 	.word	0x2000c974
+  406ae8:	2000c970 	.word	0x2000c970
 
 00406aec <__sfp_lock_release>:
   406aec:	4801      	ldr	r0, [pc, #4]	; (406af4 <__sfp_lock_release+0x8>)
   406aee:	f000 bb8d 	b.w	40720c <__retarget_lock_release_recursive>
   406af2:	bf00      	nop
-  406af4:	2000c974 	.word	0x2000c974
+  406af4:	2000c970 	.word	0x2000c970
 
 00406af8 <__libc_fini_array>:
   406af8:	b538      	push	{r3, r4, r5, lr}
@@ -13209,9 +13210,9 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   406cc2:	6008      	str	r0, [r1, #0]
   406cc4:	e7d5      	b.n	406c72 <_malloc_trim_r+0x3e>
   406cc6:	bf00      	nop
-  406cc8:	200005c0 	.word	0x200005c0
-  406ccc:	2000c3a4 	.word	0x2000c3a4
-  406cd0:	200009c8 	.word	0x200009c8
+  406cc8:	200005b8 	.word	0x200005b8
+  406ccc:	2000c3a0 	.word	0x2000c3a0
+  406cd0:	200009c0 	.word	0x200009c0
 
 00406cd4 <_free_r>:
   406cd4:	2900      	cmp	r1, #0
@@ -13398,10 +13399,10 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   406e8a:	6061      	str	r1, [r4, #4]
   406e8c:	6013      	str	r3, [r2, #0]
   406e8e:	e763      	b.n	406d58 <_free_r+0x84>
-  406e90:	200005c0 	.word	0x200005c0
-  406e94:	200005c8 	.word	0x200005c8
-  406e98:	200009cc 	.word	0x200009cc
-  406e9c:	2000c3d4 	.word	0x2000c3d4
+  406e90:	200005b8 	.word	0x200005b8
+  406e94:	200005c0 	.word	0x200005c0
+  406e98:	200009c4 	.word	0x200009c4
+  406e9c:	2000c3d0 	.word	0x2000c3d0
 
 00406ea0 <__sfvwrite_r>:
   406ea0:	6893      	ldr	r3, [r2, #8]
@@ -13753,8 +13754,8 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   4071f0:	4613      	moveq	r3, r2
   4071f2:	f893 0128 	ldrb.w	r0, [r3, #296]	; 0x128
   4071f6:	4770      	bx	lr
-  4071f8:	20000020 	.word	0x20000020
-  4071fc:	20000454 	.word	0x20000454
+  4071f8:	20000018 	.word	0x20000018
+  4071fc:	2000044c 	.word	0x2000044c
 
 00407200 <__retarget_lock_init_recursive>:
   407200:	4770      	bx	lr
@@ -13879,7 +13880,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   407304:	6818      	ldr	r0, [r3, #0]
   407306:	f000 b803 	b.w	407310 <_malloc_r>
   40730a:	bf00      	nop
-  40730c:	20000020 	.word	0x20000020
+  40730c:	20000018 	.word	0x20000018
 
 00407310 <_malloc_r>:
   407310:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -14187,13 +14188,13 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   40764e:	00c3      	lsls	r3, r0, #3
   407650:	e680      	b.n	407354 <_malloc_r+0x44>
   407652:	bf00      	nop
-  407654:	200005c0 	.word	0x200005c0
-  407658:	2000c3d4 	.word	0x2000c3d4
-  40765c:	2000c3a4 	.word	0x2000c3a4
-  407660:	2000c3cc 	.word	0x2000c3cc
-  407664:	2000c3d0 	.word	0x2000c3d0
-  407668:	200005c8 	.word	0x200005c8
-  40766c:	200009c8 	.word	0x200009c8
+  407654:	200005b8 	.word	0x200005b8
+  407658:	2000c3d0 	.word	0x2000c3d0
+  40765c:	2000c3a0 	.word	0x2000c3a0
+  407660:	2000c3c8 	.word	0x2000c3c8
+  407664:	2000c3cc 	.word	0x2000c3cc
+  407668:	200005c0 	.word	0x200005c0
+  40766c:	200009c0 	.word	0x200009c0
   407670:	0a5a      	lsrs	r2, r3, #9
   407672:	2a04      	cmp	r2, #4
   407674:	d95b      	bls.n	40772e <_malloc_r+0x41e>
@@ -14387,7 +14388,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   407864:	f106 0308 	add.w	r3, r6, #8
   407868:	e600      	b.n	40746c <_malloc_r+0x15c>
   40786a:	bf00      	nop
-  40786c:	2000c3a4 	.word	0x2000c3a4
+  40786c:	2000c3a0 	.word	0x2000c3a0
 
 00407870 <__ascii_mbtowc>:
   407870:	b082      	sub	sp, #8
@@ -14554,13 +14555,13 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   407a08:	4801      	ldr	r0, [pc, #4]	; (407a10 <__malloc_lock+0x8>)
   407a0a:	f7ff bbfd 	b.w	407208 <__retarget_lock_acquire_recursive>
   407a0e:	bf00      	nop
-  407a10:	2000c964 	.word	0x2000c964
+  407a10:	2000c960 	.word	0x2000c960
 
 00407a14 <__malloc_unlock>:
   407a14:	4801      	ldr	r0, [pc, #4]	; (407a1c <__malloc_unlock+0x8>)
   407a16:	f7ff bbf9 	b.w	40720c <__retarget_lock_release_recursive>
   407a1a:	bf00      	nop
-  407a1c:	2000c964 	.word	0x2000c964
+  407a1c:	2000c960 	.word	0x2000c960
 
 00407a20 <_realloc_r>:
   407a20:	2900      	cmp	r1, #0
@@ -14875,7 +14876,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   407d60:	3518      	adds	r5, #24
   407d62:	f10a 0220 	add.w	r2, sl, #32
   407d66:	e762      	b.n	407c2e <_realloc_r+0x20e>
-  407d68:	200005c0 	.word	0x200005c0
+  407d68:	200005b8 	.word	0x200005b8
 
 00407d6c <_sbrk_r>:
   407d6c:	b538      	push	{r3, r4, r5, lr}
@@ -14893,7 +14894,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   407d86:	d0fb      	beq.n	407d80 <_sbrk_r+0x14>
   407d88:	602b      	str	r3, [r5, #0]
   407d8a:	bd38      	pop	{r3, r4, r5, pc}
-  407d8c:	2000c978 	.word	0x2000c978
+  407d8c:	2000c974 	.word	0x2000c974
 
 00407d90 <__sread>:
   407d90:	b510      	push	{r4, lr}
@@ -15071,8 +15072,8 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   407f0e:	47a0      	blx	r4
   407f10:	e7e9      	b.n	407ee6 <_wcrtomb_r+0x1e>
   407f12:	bf00      	nop
-  407f14:	20000020 	.word	0x20000020
-  407f18:	20000454 	.word	0x20000454
+  407f14:	20000018 	.word	0x20000018
+  407f18:	2000044c 	.word	0x2000044c
 
 00407f1c <__ascii_wctomb>:
   407f1c:	b121      	cbz	r1, 407f28 <__ascii_wctomb+0xc>
@@ -15109,7 +15110,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   407f5a:	6033      	str	r3, [r6, #0]
   407f5c:	bd70      	pop	{r4, r5, r6, pc}
   407f5e:	bf00      	nop
-  407f60:	2000c978 	.word	0x2000c978
+  407f60:	2000c974 	.word	0x2000c974
 
 00407f64 <__register_exitproc>:
   407f64:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -15177,7 +15178,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   408012:	f04f 30ff 	mov.w	r0, #4294967295
   408016:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
   40801a:	bf00      	nop
-  40801c:	20000450 	.word	0x20000450
+  40801c:	20000448 	.word	0x20000448
   408020:	0040882c 	.word	0x0040882c
   408024:	00407301 	.word	0x00407301
 
@@ -15197,7 +15198,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   408042:	d0fb      	beq.n	40803c <_close_r+0x14>
   408044:	602b      	str	r3, [r5, #0]
   408046:	bd38      	pop	{r3, r4, r5, pc}
-  408048:	2000c978 	.word	0x2000c978
+  408048:	2000c974 	.word	0x2000c974
 
 0040804c <_fclose_r>:
   40804c:	b570      	push	{r4, r5, r6, lr}
@@ -15301,7 +15302,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   40812e:	d0fb      	beq.n	408128 <_fstat_r+0x18>
   408130:	602b      	str	r3, [r5, #0]
   408132:	bd38      	pop	{r3, r4, r5, pc}
-  408134:	2000c978 	.word	0x2000c978
+  408134:	2000c974 	.word	0x2000c974
 
 00408138 <_isatty_r>:
   408138:	b538      	push	{r3, r4, r5, lr}
@@ -15319,7 +15320,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   408152:	d0fb      	beq.n	40814c <_isatty_r+0x14>
   408154:	602b      	str	r3, [r5, #0]
   408156:	bd38      	pop	{r3, r4, r5, pc}
-  408158:	2000c978 	.word	0x2000c978
+  408158:	2000c974 	.word	0x2000c974
 
 0040815c <_lseek_r>:
   40815c:	b570      	push	{r4, r5, r6, lr}
@@ -15341,7 +15342,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   40817e:	6033      	str	r3, [r6, #0]
   408180:	bd70      	pop	{r4, r5, r6, pc}
   408182:	bf00      	nop
-  408184:	2000c978 	.word	0x2000c978
+  408184:	2000c974 	.word	0x2000c974
 
 00408188 <_read_r>:
   408188:	b570      	push	{r4, r5, r6, lr}
@@ -15363,7 +15364,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   4081aa:	6033      	str	r3, [r6, #0]
   4081ac:	bd70      	pop	{r4, r5, r6, pc}
   4081ae:	bf00      	nop
-  4081b0:	2000c978 	.word	0x2000c978
+  4081b0:	2000c974 	.word	0x2000c974
 
 004081b4 <__aeabi_uldivmod>:
   4081b4:	b953      	cbnz	r3, 4081cc <__aeabi_uldivmod+0x18>
@@ -15682,8 +15683,8 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   40860c:	00000000 00000001 00000002 00000003     ................
 
 0040861c <recieve_dispatch_table>:
-  40861c:	04680000 00400f35 08600000 00400f55     ..h.5.@...`.U.@.
-  40862c:	08640000 00400f6d 04800000 00400f81     ..d.m.@.......@.
+  40861c:	04680000 00400f35 08600000 00400f59     ..h.5.@...`.Y.@.
+  40862c:	08640000 00400f71 04800000 00400f85     ..d.q.@.......@.
 
 0040863c <HC_AFEC_channel_list>:
   40863c:	00010000 00030002                       ........
@@ -15716,9 +15717,9 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   4086f4:	c0804000                                .@..
 
 004086f8 <curr_limits>:
-  4086f8:	0000001a 0000000f 0000000f 0000000a     ................
-  408708:	0000000c 00000000 00000002 00000006     ................
-  408718:	00000006 00000003 00000005 00000000     ................
+  4086f8:	0000001a 0000000a 0000000f 0000000c     ................
+  408708:	00000002 00000006 00000006 00000003     ................
+  408718:	0000000f 00000005 00000000 00000000     ................
 
 00408728 <pwm_assignment>:
   408728:	00000000 00000001 00000002 00000003     ................
@@ -15749,7 +15750,7 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
   408820:	00000a0d 31676f6c 00006630              ....log10f..
 
 0040882c <_global_impure_ptr>:
-  40882c:	20000028 0000000a 33323130 37363534     (.. ....01234567
+  40882c:	20000020 0000000a 33323130 37363534      .. ....01234567
   40883c:	42413938 46454443 00000000 33323130     89ABCDEF....0123
   40884c:	37363534 62613938 66656463 00000000     456789abcdef....
   40885c:	6c756e28 0000296c                       (null)..
@@ -15816,120 +15817,117 @@ Disassembly of section .relocate:
 20000010:	aaaa aaaa                                   ....
 
 20000014 <max_duty_cycle>:
-20000014:	0064 0000                                   d...
+20000014:	0164                                             d
 
-20000018 <pwm_request_arr>:
-20000018:	4b4b 4b4b                                   KKKK
+20000015 <__fdlib_version>:
+20000015:	0001 2000                                        ...
 
-2000001c <__fdlib_version>:
-2000001c:	0001 0000                                   ....
+20000018 <_impure_ptr>:
+20000018:	0020 2000 0000 0000                          .. ....
 
-20000020 <_impure_ptr>:
-20000020:	0028 2000 0000 0000                         (.. ....
-
-20000028 <impure_data>:
-20000028:	0000 0000 0314 2000 037c 2000 03e4 2000     ....... |.. ... 
+20000020 <impure_data>:
+20000020:	0000 0000 030c 2000 0374 2000 03dc 2000     ....... t.. ... 
 	...
-200000d0:	0001 0000 0000 0000 330e abcd 1234 e66d     .........3..4.m.
-200000e0:	deec 0005 000b 0000 0000 0000 0000 0000     ................
+200000c8:	0001 0000 0000 0000 330e abcd 1234 e66d     .........3..4.m.
+200000d8:	deec 0005 000b 0000 0000 0000 0000 0000     ................
 	...
 
-20000450 <__atexit_recursive_mutex>:
-20000450:	c954 2000                                   T.. 
+20000448 <__atexit_recursive_mutex>:
+20000448:	c950 2000                                   P.. 
 
-20000454 <__global_locale>:
-20000454:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
+2000044c <__global_locale>:
+2000044c:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
 	...
-20000474:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
+2000046c:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
 	...
-20000494:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
+2000048c:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
 	...
-200004b4:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
+200004ac:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
 	...
-200004d4:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
+200004cc:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
 	...
-200004f4:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
+200004ec:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
 	...
-20000514:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
+2000050c:	0043 0000 0000 0000 0000 0000 0000 0000     C...............
 	...
-20000534:	7f1d 0040 7871 0040 0000 0000 8894 0040     ..@.qx@.......@.
-20000544:	8890 0040 87ec 0040 87ec 0040 87ec 0040     ..@...@...@...@.
-20000554:	87ec 0040 87ec 0040 87ec 0040 87ec 0040     ..@...@...@...@.
-20000564:	87ec 0040 87ec 0040 ffff ffff ffff ffff     ..@...@.........
-20000574:	ffff ffff ffff 0000 0001 5341 4943 0049     ..........ASCII.
+2000052c:	7f1d 0040 7871 0040 0000 0000 8894 0040     ..@.qx@.......@.
+2000053c:	8890 0040 87ec 0040 87ec 0040 87ec 0040     ..@...@...@...@.
+2000054c:	87ec 0040 87ec 0040 87ec 0040 87ec 0040     ..@...@...@...@.
+2000055c:	87ec 0040 87ec 0040 ffff ffff ffff ffff     ..@...@.........
+2000056c:	ffff ffff ffff 0000 0001 5341 4943 0049     ..........ASCII.
 	...
-2000059c:	0000 5341 4943 0049 0000 0000 0000 0000     ..ASCII.........
+20000594:	0000 5341 4943 0049 0000 0000 0000 0000     ..ASCII.........
 	...
 
-200005c0 <__malloc_av_>:
+200005b8 <__malloc_av_>:
 	...
-200005c8:	05c0 2000 05c0 2000 05c8 2000 05c8 2000     ... ... ... ... 
-200005d8:	05d0 2000 05d0 2000 05d8 2000 05d8 2000     ... ... ... ... 
-200005e8:	05e0 2000 05e0 2000 05e8 2000 05e8 2000     ... ... ... ... 
-200005f8:	05f0 2000 05f0 2000 05f8 2000 05f8 2000     ... ... ... ... 
-20000608:	0600 2000 0600 2000 0608 2000 0608 2000     ... ... ... ... 
-20000618:	0610 2000 0610 2000 0618 2000 0618 2000     ... ... ... ... 
-20000628:	0620 2000 0620 2000 0628 2000 0628 2000      ..  .. (.. (.. 
-20000638:	0630 2000 0630 2000 0638 2000 0638 2000     0.. 0.. 8.. 8.. 
-20000648:	0640 2000 0640 2000 0648 2000 0648 2000     @.. @.. H.. H.. 
-20000658:	0650 2000 0650 2000 0658 2000 0658 2000     P.. P.. X.. X.. 
-20000668:	0660 2000 0660 2000 0668 2000 0668 2000     `.. `.. h.. h.. 
-20000678:	0670 2000 0670 2000 0678 2000 0678 2000     p.. p.. x.. x.. 
-20000688:	0680 2000 0680 2000 0688 2000 0688 2000     ... ... ... ... 
-20000698:	0690 2000 0690 2000 0698 2000 0698 2000     ... ... ... ... 
-200006a8:	06a0 2000 06a0 2000 06a8 2000 06a8 2000     ... ... ... ... 
-200006b8:	06b0 2000 06b0 2000 06b8 2000 06b8 2000     ... ... ... ... 
-200006c8:	06c0 2000 06c0 2000 06c8 2000 06c8 2000     ... ... ... ... 
-200006d8:	06d0 2000 06d0 2000 06d8 2000 06d8 2000     ... ... ... ... 
-200006e8:	06e0 2000 06e0 2000 06e8 2000 06e8 2000     ... ... ... ... 
-200006f8:	06f0 2000 06f0 2000 06f8 2000 06f8 2000     ... ... ... ... 
-20000708:	0700 2000 0700 2000 0708 2000 0708 2000     ... ... ... ... 
-20000718:	0710 2000 0710 2000 0718 2000 0718 2000     ... ... ... ... 
-20000728:	0720 2000 0720 2000 0728 2000 0728 2000      ..  .. (.. (.. 
-20000738:	0730 2000 0730 2000 0738 2000 0738 2000     0.. 0.. 8.. 8.. 
-20000748:	0740 2000 0740 2000 0748 2000 0748 2000     @.. @.. H.. H.. 
-20000758:	0750 2000 0750 2000 0758 2000 0758 2000     P.. P.. X.. X.. 
-20000768:	0760 2000 0760 2000 0768 2000 0768 2000     `.. `.. h.. h.. 
-20000778:	0770 2000 0770 2000 0778 2000 0778 2000     p.. p.. x.. x.. 
-20000788:	0780 2000 0780 2000 0788 2000 0788 2000     ... ... ... ... 
-20000798:	0790 2000 0790 2000 0798 2000 0798 2000     ... ... ... ... 
-200007a8:	07a0 2000 07a0 2000 07a8 2000 07a8 2000     ... ... ... ... 
-200007b8:	07b0 2000 07b0 2000 07b8 2000 07b8 2000     ... ... ... ... 
-200007c8:	07c0 2000 07c0 2000 07c8 2000 07c8 2000     ... ... ... ... 
-200007d8:	07d0 2000 07d0 2000 07d8 2000 07d8 2000     ... ... ... ... 
-200007e8:	07e0 2000 07e0 2000 07e8 2000 07e8 2000     ... ... ... ... 
-200007f8:	07f0 2000 07f0 2000 07f8 2000 07f8 2000     ... ... ... ... 
-20000808:	0800 2000 0800 2000 0808 2000 0808 2000     ... ... ... ... 
-20000818:	0810 2000 0810 2000 0818 2000 0818 2000     ... ... ... ... 
-20000828:	0820 2000 0820 2000 0828 2000 0828 2000      ..  .. (.. (.. 
-20000838:	0830 2000 0830 2000 0838 2000 0838 2000     0.. 0.. 8.. 8.. 
-20000848:	0840 2000 0840 2000 0848 2000 0848 2000     @.. @.. H.. H.. 
-20000858:	0850 2000 0850 2000 0858 2000 0858 2000     P.. P.. X.. X.. 
-20000868:	0860 2000 0860 2000 0868 2000 0868 2000     `.. `.. h.. h.. 
-20000878:	0870 2000 0870 2000 0878 2000 0878 2000     p.. p.. x.. x.. 
-20000888:	0880 2000 0880 2000 0888 2000 0888 2000     ... ... ... ... 
-20000898:	0890 2000 0890 2000 0898 2000 0898 2000     ... ... ... ... 
-200008a8:	08a0 2000 08a0 2000 08a8 2000 08a8 2000     ... ... ... ... 
-200008b8:	08b0 2000 08b0 2000 08b8 2000 08b8 2000     ... ... ... ... 
-200008c8:	08c0 2000 08c0 2000 08c8 2000 08c8 2000     ... ... ... ... 
-200008d8:	08d0 2000 08d0 2000 08d8 2000 08d8 2000     ... ... ... ... 
-200008e8:	08e0 2000 08e0 2000 08e8 2000 08e8 2000     ... ... ... ... 
-200008f8:	08f0 2000 08f0 2000 08f8 2000 08f8 2000     ... ... ... ... 
-20000908:	0900 2000 0900 2000 0908 2000 0908 2000     ... ... ... ... 
-20000918:	0910 2000 0910 2000 0918 2000 0918 2000     ... ... ... ... 
-20000928:	0920 2000 0920 2000 0928 2000 0928 2000      ..  .. (.. (.. 
-20000938:	0930 2000 0930 2000 0938 2000 0938 2000     0.. 0.. 8.. 8.. 
-20000948:	0940 2000 0940 2000 0948 2000 0948 2000     @.. @.. H.. H.. 
-20000958:	0950 2000 0950 2000 0958 2000 0958 2000     P.. P.. X.. X.. 
-20000968:	0960 2000 0960 2000 0968 2000 0968 2000     `.. `.. h.. h.. 
-20000978:	0970 2000 0970 2000 0978 2000 0978 2000     p.. p.. x.. x.. 
-20000988:	0980 2000 0980 2000 0988 2000 0988 2000     ... ... ... ... 
-20000998:	0990 2000 0990 2000 0998 2000 0998 2000     ... ... ... ... 
-200009a8:	09a0 2000 09a0 2000 09a8 2000 09a8 2000     ... ... ... ... 
-200009b8:	09b0 2000 09b0 2000 09b8 2000 09b8 2000     ... ... ... ... 
+200005c0:	05b8 2000 05b8 2000 05c0 2000 05c0 2000     ... ... ... ... 
+200005d0:	05c8 2000 05c8 2000 05d0 2000 05d0 2000     ... ... ... ... 
+200005e0:	05d8 2000 05d8 2000 05e0 2000 05e0 2000     ... ... ... ... 
+200005f0:	05e8 2000 05e8 2000 05f0 2000 05f0 2000     ... ... ... ... 
+20000600:	05f8 2000 05f8 2000 0600 2000 0600 2000     ... ... ... ... 
+20000610:	0608 2000 0608 2000 0610 2000 0610 2000     ... ... ... ... 
+20000620:	0618 2000 0618 2000 0620 2000 0620 2000     ... ...  ..  .. 
+20000630:	0628 2000 0628 2000 0630 2000 0630 2000     (.. (.. 0.. 0.. 
+20000640:	0638 2000 0638 2000 0640 2000 0640 2000     8.. 8.. @.. @.. 
+20000650:	0648 2000 0648 2000 0650 2000 0650 2000     H.. H.. P.. P.. 
+20000660:	0658 2000 0658 2000 0660 2000 0660 2000     X.. X.. `.. `.. 
+20000670:	0668 2000 0668 2000 0670 2000 0670 2000     h.. h.. p.. p.. 
+20000680:	0678 2000 0678 2000 0680 2000 0680 2000     x.. x.. ... ... 
+20000690:	0688 2000 0688 2000 0690 2000 0690 2000     ... ... ... ... 
+200006a0:	0698 2000 0698 2000 06a0 2000 06a0 2000     ... ... ... ... 
+200006b0:	06a8 2000 06a8 2000 06b0 2000 06b0 2000     ... ... ... ... 
+200006c0:	06b8 2000 06b8 2000 06c0 2000 06c0 2000     ... ... ... ... 
+200006d0:	06c8 2000 06c8 2000 06d0 2000 06d0 2000     ... ... ... ... 
+200006e0:	06d8 2000 06d8 2000 06e0 2000 06e0 2000     ... ... ... ... 
+200006f0:	06e8 2000 06e8 2000 06f0 2000 06f0 2000     ... ... ... ... 
+20000700:	06f8 2000 06f8 2000 0700 2000 0700 2000     ... ... ... ... 
+20000710:	0708 2000 0708 2000 0710 2000 0710 2000     ... ... ... ... 
+20000720:	0718 2000 0718 2000 0720 2000 0720 2000     ... ...  ..  .. 
+20000730:	0728 2000 0728 2000 0730 2000 0730 2000     (.. (.. 0.. 0.. 
+20000740:	0738 2000 0738 2000 0740 2000 0740 2000     8.. 8.. @.. @.. 
+20000750:	0748 2000 0748 2000 0750 2000 0750 2000     H.. H.. P.. P.. 
+20000760:	0758 2000 0758 2000 0760 2000 0760 2000     X.. X.. `.. `.. 
+20000770:	0768 2000 0768 2000 0770 2000 0770 2000     h.. h.. p.. p.. 
+20000780:	0778 2000 0778 2000 0780 2000 0780 2000     x.. x.. ... ... 
+20000790:	0788 2000 0788 2000 0790 2000 0790 2000     ... ... ... ... 
+200007a0:	0798 2000 0798 2000 07a0 2000 07a0 2000     ... ... ... ... 
+200007b0:	07a8 2000 07a8 2000 07b0 2000 07b0 2000     ... ... ... ... 
+200007c0:	07b8 2000 07b8 2000 07c0 2000 07c0 2000     ... ... ... ... 
+200007d0:	07c8 2000 07c8 2000 07d0 2000 07d0 2000     ... ... ... ... 
+200007e0:	07d8 2000 07d8 2000 07e0 2000 07e0 2000     ... ... ... ... 
+200007f0:	07e8 2000 07e8 2000 07f0 2000 07f0 2000     ... ... ... ... 
+20000800:	07f8 2000 07f8 2000 0800 2000 0800 2000     ... ... ... ... 
+20000810:	0808 2000 0808 2000 0810 2000 0810 2000     ... ... ... ... 
+20000820:	0818 2000 0818 2000 0820 2000 0820 2000     ... ...  ..  .. 
+20000830:	0828 2000 0828 2000 0830 2000 0830 2000     (.. (.. 0.. 0.. 
+20000840:	0838 2000 0838 2000 0840 2000 0840 2000     8.. 8.. @.. @.. 
+20000850:	0848 2000 0848 2000 0850 2000 0850 2000     H.. H.. P.. P.. 
+20000860:	0858 2000 0858 2000 0860 2000 0860 2000     X.. X.. `.. `.. 
+20000870:	0868 2000 0868 2000 0870 2000 0870 2000     h.. h.. p.. p.. 
+20000880:	0878 2000 0878 2000 0880 2000 0880 2000     x.. x.. ... ... 
+20000890:	0888 2000 0888 2000 0890 2000 0890 2000     ... ... ... ... 
+200008a0:	0898 2000 0898 2000 08a0 2000 08a0 2000     ... ... ... ... 
+200008b0:	08a8 2000 08a8 2000 08b0 2000 08b0 2000     ... ... ... ... 
+200008c0:	08b8 2000 08b8 2000 08c0 2000 08c0 2000     ... ... ... ... 
+200008d0:	08c8 2000 08c8 2000 08d0 2000 08d0 2000     ... ... ... ... 
+200008e0:	08d8 2000 08d8 2000 08e0 2000 08e0 2000     ... ... ... ... 
+200008f0:	08e8 2000 08e8 2000 08f0 2000 08f0 2000     ... ... ... ... 
+20000900:	08f8 2000 08f8 2000 0900 2000 0900 2000     ... ... ... ... 
+20000910:	0908 2000 0908 2000 0910 2000 0910 2000     ... ... ... ... 
+20000920:	0918 2000 0918 2000 0920 2000 0920 2000     ... ...  ..  .. 
+20000930:	0928 2000 0928 2000 0930 2000 0930 2000     (.. (.. 0.. 0.. 
+20000940:	0938 2000 0938 2000 0940 2000 0940 2000     8.. 8.. @.. @.. 
+20000950:	0948 2000 0948 2000 0950 2000 0950 2000     H.. H.. P.. P.. 
+20000960:	0958 2000 0958 2000 0960 2000 0960 2000     X.. X.. `.. `.. 
+20000970:	0968 2000 0968 2000 0970 2000 0970 2000     h.. h.. p.. p.. 
+20000980:	0978 2000 0978 2000 0980 2000 0980 2000     x.. x.. ... ... 
+20000990:	0988 2000 0988 2000 0990 2000 0990 2000     ... ... ... ... 
+200009a0:	0998 2000 0998 2000 09a0 2000 09a0 2000     ... ... ... ... 
+200009b0:	09a8 2000 09a8 2000 09b0 2000 09b0 2000     ... ... ... ... 
 
-200009c8 <__malloc_sbrk_base>:
-200009c8:	ffff ffff                                   ....
+200009c0 <__malloc_sbrk_base>:
+200009c0:	ffff ffff                                   ....
 
-200009cc <__malloc_trim_threshold>:
-200009cc:	0000 0002                                   ....
+200009c4 <__malloc_trim_threshold>:
+200009c4:	0000 0002                                   ....

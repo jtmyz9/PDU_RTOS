@@ -37,7 +37,7 @@ void handle_CAN(can_mb_conf_t mailbox){
 * Service a State Request from Requesting ECU
 */
 void enable_request(uint64_t payload){
-	enable_mask = ((payload)) & ~error_mask;
+	enable_mask = ((payload | PDU_NON_ECU_MASK)) & ~error_mask;
 	g_recv_timeout_cnt = 0;
 	//set_enable(enable_mask, PDU_ON_STATE);
 	//do this to ensure off request are serviced

@@ -47,15 +47,15 @@ typedef enum enable_index	{
 /************************************************************************/
 typedef enum {
 	FAN			= channel_0,
-	IGNITION	= channel_3,
-	PUMP		= channel_2,
-	ECU			= channel_4,
-	BRAKE		= channel_6,
-	HORN		= channel_7,
-	DATA		= channel_8,
-	GEN_5V		= channel_9,
-	GEN_12V		= channel_10,
-	WATER		= channel_1,
+	IGNITION	= channel_1,
+	PUMP		= channel_8,
+	ECU			= channel_3,
+	BRAKE		= channel_4,
+	HORN		= channel_5,
+	DATA		= channel_6,
+	GEN_5V		= channel_7,
+	GEN_12V		= channel_9,
+	WATER		= channel_2,
 	BSPD		= channel_11
 	
 }channel_config;
@@ -72,7 +72,7 @@ typedef enum {
 * complicated error recovery modes defined later
 */
 #define PDU_DEFAULT_MASK		( (1<<ECU) | (1<<DATA) | (1<<GEN_5V) | (1<<GEN_12V) )
-#define PDU_TIMEOUT_MASK		0//((1<<ECU) | (1<<DATA))
+#define PDU_TIMEOUT_MASK		((1<<ECU) | (1<<DATA))
 //At a later date might be able to remove ECU_MASK from this list, make a "run" relay in ECU that toggles its own PDU bit
 #define PDU_NON_ECU_MASK		PDU_DEFAULT_MASK
 //These channels are configured to be "restarted" if they encounter a fault or over current
@@ -88,7 +88,7 @@ typedef enum {
 /** Period value of PWM output waveform */
 #define PDU_PERIOD_VALUE			100
 /** Initial duty cycle value */
-#define PDU_DEFAULT_DUTY_VALUE		(PWM_DUTY_CYCLE_SATURATION_LIMIT - 25)
+#define PDU_DEFAULT_DUTY_VALUE		(PWM_DUTY_CYCLE_SATURATION_LIMIT - 100)
 
 /*
 * Config for Current limits for each channel
