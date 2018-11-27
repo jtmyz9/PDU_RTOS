@@ -73,8 +73,13 @@ void system_task(void* pvParameters){
 			
 		
 #endif			
-		
-
+		PDU.total_curr = 0;
+		for (uint8_t index = 0; index < NUM_HC_CHANNEL; index++){
+			PDU.total_curr += (outputs[index].current / SCALE_FACTOR_HC);
+			}
+		for (uint8_t index = 0; index < NUM_LC_CHANNEL; index++){
+			PDU.total_curr += (outputs[index].current / SCALE_FACTOR_LC);
+		}	
 		// wait
 		vTaskDelayUntil(&xLastWakeTime, pdMS_TO_TICKS( xFrequency ));
 		}

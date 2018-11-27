@@ -84,7 +84,7 @@ typedef enum {
 /************************************************************************/
 
 /** PWM frequency in Hz */
-#define PDU_PWM_FREQUENCY			5000
+#define PDU_PWM_FREQUENCY			100
 /** Period value of PWM output waveform */
 #define PDU_PERIOD_VALUE			100
 /** Initial duty cycle value */

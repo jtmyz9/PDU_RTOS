@@ -61,7 +61,7 @@ void init_PDU(void){
 	afec2_semaphore = xSemaphoreCreateMutex();
 	afec_complete_buffer = xSemaphoreCreateBinary();
 	
-	enable_mask = PDU_DEFAULT_MASK;
+	enable_mask = PDU_NON_ECU_MASK;
 	
 	for(uint8_t index = 0; index < NUM_LC_CHANNEL; index++){
 		ioport_set_pin_dir(PDU_DEN_iopins[index], IOPORT_DIR_OUTPUT);
@@ -74,6 +74,12 @@ void init_PDU(void){
 	
 }
 
+
+/*
+* PDU_IOINIT
+* FUnction to intialize all the I/O pins and services for PDU
+* shall setup pins as inputs/outputs and configure necessary ISR(s)
+*/
 void pdu_ioinit(void){
 	//setup the port for the PDU
 	ioport_enable_port(PDU_ENABLE_PORT, PDU_ENABLES_PORTD_MASK);
