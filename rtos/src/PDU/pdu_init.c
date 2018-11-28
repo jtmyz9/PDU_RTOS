@@ -286,7 +286,7 @@ void PDU_system_startup(void){
 			NULL) != pdPASS)
 			{printf("Failed to create a HC task %d\r\n", i); }
 
-		}
+		} // 4 * 1024 RAM used
 		
 		for (U8 i = NUM_HC_CHANNEL; i < NUM_PDU_CHANNEL; i++)
 			{
@@ -297,15 +297,16 @@ void PDU_system_startup(void){
 				LC_THREAD_PRIORITY,
 				NULL) != pdPASS)
 				{printf("Failed to create a LC task %d\r\n", i); }		
-			}
+			} // 8 * 1024 RAM used
 		
+		// this might be too small of a stack size
 		if (xTaskCreate(can_thread,
 			"CAN Thread",
-			CAN_THREAD_STACK_SIZE,
+			CAN_THREAD_STACK_SIZE * 2,
 			NULL,
 			1,
 			NULL) != pdPASS)
-			{ printf("Failed to create can task\r\n"); }
+			{ printf("Failed to create can task\r\n"); } //256 RAM used
 		
 		if (xTaskCreate(transmit_status,
 			"Status Thread",
@@ -313,7 +314,7 @@ void PDU_system_startup(void){
 			NULL,
 			TRANSMIT_PRIORITY,
 			NULL) != pdPASS)
-			{ printf("Failed to create can task\r\n"); }
+			{ printf("Failed to create can task\r\n"); } //256 RAM used
 		
 		
 		if (xTaskCreate(transmit_output_current,
@@ -322,7 +323,7 @@ void PDU_system_startup(void){
 			NULL,
 			TRANSMIT_PRIORITY,
 			NULL) != pdPASS)
-			{ printf("Failed to create can task\r\n"); }
+			{ printf("Failed to create can task\r\n"); } //256 RAM used
 		
 		
 		if (xTaskCreate(transmit_output_state,
@@ -331,7 +332,7 @@ void PDU_system_startup(void){
 			NULL,
 			TRANSMIT_PRIORITY,
 			NULL) != pdPASS)
-			{ printf("Failed to create can task\r\n"); }
+			{ printf("Failed to create can task\r\n"); } //256 RAM used
 		
 		if (xTaskCreate(system_task,
 			"System Thread",
@@ -339,6 +340,6 @@ void PDU_system_startup(void){
 			NULL,
 			SYSTEM_TASK_PRIORITY,
 			NULL) != pdPASS)
-			{ printf("Failed to create can task\r\n"); }
+			{ printf("Failed to create can task\r\n"); } //1024 RAM used
 	}
 

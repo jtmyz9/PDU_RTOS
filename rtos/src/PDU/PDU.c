@@ -163,7 +163,7 @@ void HC_thread(void* pvParameters){
 				
 				for(int i = 100; i > pwm_request_arr[channel_num]; i-=10){
 					pwm_channel_update_duty(PDU_PWM, &hc_pwm_channel[channel_num], i);
-					vTaskDelay(pdMS_TO_TICKS(1));
+					vTaskDelay(pdMS_TO_TICKS(100));
 					}
 				pwm_channel_update_duty(PDU_PWM, &hc_pwm_channel[channel_num], hc_pwm_channel[channel_num].ul_duty);
 				outputs[channel_num].state = CHANNEL_ON;
@@ -795,7 +795,7 @@ void transmit_output_temp(void* pvParameters){
 
 
 /*
-* Callback function for when PDU hasn't recieved control
+* Callback function for when PDU hasn't received control
 * message from ECU for greater than timeout 
 *
 * Currently we only need this to set error flag and set 

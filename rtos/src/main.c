@@ -57,7 +57,23 @@ extern void vApplicationStackOverflowHook(xTaskHandle *pxTask,
 	 * identify which task has overflowed its stack.
 	 */
 	for (;;) {
-	}
+		can_mailbox[PDU_STATUS_TX_MB].ul_datal = 0;
+		can_mailbox[PDU_STATUS_TX_MB].ul_datah = 0;
+		
+		LSB1W(can_mailbox[PDU_STATUS_TX_MB].ul_datal) = 0xff;
+		LSB2W(can_mailbox[PDU_STATUS_TX_MB].ul_datal) = 0xff;
+		LSB3W(can_mailbox[PDU_STATUS_TX_MB].ul_datal) = 0x03;
+		can_mailbox[PDU_STATUS_TX_MB].ul_datal |= state_three;
+		LSB0W(can_mailbox[PDU_STATUS_TX_MB].ul_datah) = 0xff;
+		LSB1W(can_mailbox[PDU_STATUS_TX_MB].ul_datah) = 0xff;
+					
+		can_mailbox[PDU_STATUS_TX_MB].uc_length = MAX_CAN_FRAME_DATA_LEN;
+		can_mailbox_write(PDU_CAN, &can_mailbox[PDU_STATUS_TX_MB]);
+		can_mailbox_send_transfer_cmd(PDU_CAN, &can_mailbox[PDU_STATUS_TX_MB]);
+
+		
+		delay_ms(1000);
+		}
 }
 
 /**
