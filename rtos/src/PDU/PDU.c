@@ -47,32 +47,52 @@ void system_task(void* pvParameters){
 
 		xSemaphoreGive( afec_semaphore );
 
-		//battery voltage -> pwm max shift
-		if(vehicle.eng_status == true){
-			for(uint8_t voltage = 0; voltage < NUM_VOLTAGE_LVL; voltage++){
-				if( PDU.batt_volt < ( pwm_voltage_levels[voltage] * VOLTAGE_SCALE_FACTOR )){
-					 max_duty_cycle = pwm_staturation_limits[voltage];
-					 break;
+		
+		switch(vehicle.eng_status){
+			
+			case run:
+				//battery voltage -> pwm max shift
+				for(uint8_t voltage = 0; voltage < NUM_VOLTAGE_LVL; voltage++){
+					if( PDU.batt_volt < ( pwm_voltage_levels[voltage] * VOLTAGE_SCALE_FACTOR )){
+						max_duty_cycle = pwm_staturation_limits[voltage];
+						break;
 					}
+					}
+#ifdef ENDURANCE_SWITCH
+				
+				for(uint8_t index; index < NUM_PDU_CHANNEL; index++){
+					config[index].current_limit = UINT32_MAX;
+					}
+				
+				// Check BSPD Voltage and switch extra channel if needed
+				if( vehicle.eng_status == run){
+					//Switch on secondary channel to override the BSPD, because safety third
+					enable_mask |= (1<<BSPD);
+					}
+				
+				
+#endif
+				break;
+			case crank:
+				break;
+			case startup:
+				//break;
+			case stop:
+				//break;
+			default:
+				if(PDU.batt_volt < PDU_MIN_OFF_STATE_V){
+					vTaskSuspendAll();
+					all_off();
+					for(;;){}
 				}
-			}
+				break;
+		}
+
+			
 		if(error_mask){
 			PDU.error_flag = true;
 			}
-#ifdef ENDURANCE_SWITCH
 		
-		for(uint8_t index; index < NUM_PDU_CHANNEL; index++){
-			config[index].current_limit = UINT32_MAX;
-			}
-			
-		// Check BSPD Voltage and switch extra channel if needed
-		if( vehicle.eng_status == run){
-			//Switch on secondary channel to override the BSPD, because safety third
-			enable_mask |= (1<<BSPD);
-			}
-			
-		
-#endif			
 		PDU.total_curr = 0;
 		for (uint8_t index = 0; index < NUM_HC_CHANNEL; index++){
 			PDU.total_curr += (outputs[index].current / SCALE_FACTOR_HC);
@@ -233,11 +253,11 @@ state_request output_state_machine(output_data_t* output_channel, uint32_t chan_
 		else if(output_channel->current > channel_is_config.fault_min){
 			return FAULT_TRANSITION;
 			}
-		// If the channel is overcurrent 
+		// If the channel is overcurrent, increment overcurrent time
 		else if(output_channel->current				> config[chan_num].current_limit){
 			output_channel->overcurrent_time++;
 			}
-		//
+		// if the channel is overcurrent and overcurrent for greater than delay time
 		else if(output_channel->current				> config[chan_num].current_limit &&
 			    output_channel->overcurrent_time	> config[chan_num].inrush_delay){
 					return OVER_CURRENT_TRANSITION;
@@ -339,34 +359,48 @@ void LC_thread(void* pvParameters){
 		//calc state machine
 		state_request req = output_state_machine(&outputs[channel_num], channel_num, channel_is_config);
 		switch(req){
+			//service an On request
 			case ON_REQUEST:
+				// Bang-bang precharge the output to charge bulk capacitance
 				for(U8 attempt = 0; attempt < PRECHARGE_ATTEMPTS; attempt++){
 					ioport_set_pin_level(PDU_iopins[channel_num], PDU_ON_STATE);
 					vTaskDelay(pdMS_TO_TICKS(PRECHARGE_TIME));
 					ioport_set_pin_level(PDU_iopins[channel_num], PDU_OFF_STATE);
 					}
+				//turn on the output pin	
 				ioport_set_pin_level(PDU_iopins[channel_num], PDU_ON_STATE);
 				outputs[channel_num].state = CHANNEL_ON;
 				break;
+			//service an off request
 			case OFF_REQUEST:
+				// turn off output
 				ioport_set_pin_level(PDU_iopins[channel_num], PDU_OFF_STATE);
 				outputs[channel_num].state = CHANNEL_OFF;
 				break;
+			//service over current transition, software fusing
 			case OVER_CURRENT_TRANSITION:
+				// turn off the output pin
 				ioport_set_pin_level(PDU_iopins[channel_num], PDU_OFF_STATE);
+				// set bit in error mask
 				Set_bits(error_mask, (1<<channel_num));
 				outputs[channel_num].state = CHANNEL_OVER_CURRENT;
 				break;
+			//service open transition
 			case OPEN_TRANSITION:
+				// Do nothing, just set state for datalogging
 				outputs[channel_num].state = CHANNEL_OPEN;
 				break;
+			//service fault transition( Hardware Fusing )
 			case FAULT_TRANSITION:
+				// assert pin off, hardware should already be latched off by this point
 				ioport_set_pin_level(PDU_iopins[channel_num], PDU_OFF_STATE);
 				Set_bits(error_mask, (1<<channel_num));
 				outputs[channel_num].state = CHANNEL_FAULT;
 				break;
+			// clear fault request
 			case CLEAR_FAULT_TRANSITION:
 				outputs[channel_num].state = CHANNEL_CLEAR_FAULT;
+				//attempt to restart the output
 				soft_restart(channel_num, FAULT_LATCH_TIME_MS_LC);
 				Clr_bits(error_mask, (1<<channel_num));
 				break;
@@ -483,11 +517,11 @@ void get_system_voltages(uint16_t* batt_volt, uint16_t* supply_volt){
 	afec_channel_enable( PDU_AFEC, BATT_MONITOR );
 	afec_channel_enable( PDU_AFEC, SUPPLY_MONITOR );
 
-
 	afec_start_software_conversion( PDU_AFEC );
 	//TODO: make this not hardcoded, this works becuase the Supply monitor channel number is higher
 	// and all afec conversions are done in numerical order of enabled channels
-	while( !(afec_get_interrupt_status( PDU_AFEC ) & ( (1 << SUPPLY_MONITOR) )) );
+	//while( !(afec_get_interrupt_status( PDU_AFEC ) & ( (1 << SUPPLY_MONITOR) )) );
+	while( !(afec_get_interrupt_status( PDU_AFEC ) & ( (1 << max(SUPPLY_MONITOR, BATT_MONITOR)) )) );
 
 	tmp_supply = afec_channel_get_value( PDU_AFEC, SUPPLY_MONITOR );
 	tmp_batt   = afec_channel_get_value( PDU_AFEC, BATT_MONITOR );
@@ -505,7 +539,26 @@ void get_system_voltages(uint16_t* batt_volt, uint16_t* supply_volt){
 	*batt_volt		= min((uint16_t)(tmp_batt * VOLTAGE_SCALE_FACTOR ), UINT16_MAX);
 	*supply_volt	= min((uint16_t)(tmp_supply * VOLTAGE_SCALE_FACTOR ), UINT16_MAX);
 }
+void monitor_BSPD(uint16_t* bspd_voltage){
+	volatile float tmp_bspd;
 
+	afec_channel_enable( PDU_AFEC, BSPD_MONITOR );
+
+	afec_start_software_conversion( PDU_AFEC );
+	//TODO: make this not hardcoded, this works becuase the Supply monitor channel number is higher
+	// and all afec conversions are done in numerical order of enabled channels
+	while( !(afec_get_interrupt_status( PDU_AFEC ) & ( (1 << BSPD_MONITOR) )) );
+
+	tmp_bspd = afec_channel_get_value( PDU_AFEC, BSPD_MONITOR );
+
+	tmp_bspd 	= ( tmp_bspd *  AFEC_conversion_factor_mV ) / AFEC_mV_to_V;
+
+	tmp_bspd 	= ( tmp_bspd * ( SUPPLY_MONITOR_R1 + SUPPLY_MONITOR_R2) ) / SUPPLY_MONITOR_R2;
+
+	afec_channel_disable( PDU_AFEC, BSPD_MONITOR );
+
+	*bspd_voltage		= min((uint16_t)(tmp_bspd * VOLTAGE_SCALE_FACTOR ), UINT16_MAX);
+	}
 
 void soft_restart(pdu_enable_index channel_num, uint32_t latch_time)
 {

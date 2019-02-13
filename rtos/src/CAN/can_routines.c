@@ -37,7 +37,7 @@ void handle_CAN(can_mb_conf_t mailbox){
 * Service a State Request from Requesting ECU
 */
 void enable_request(uint64_t payload){
-	enable_mask = ((payload | PDU_NON_ECU_MASK)) & ~error_mask;
+	enable_mask = ((payload | PDU_NON_ECU_MASK));
 	g_recv_timeout_cnt = 0;
 	//set_enable(enable_mask, PDU_ON_STATE);
 	//do this to ensure off request are serviced
@@ -52,7 +52,7 @@ void ecu_eng_data(uint64_t payload){
 void ecu_vehicle_data(uint64_t payload){
 	vehicle.fuel_pressure	= LSB0D(payload);
 	//PDU.batt_volt			= ( LSB1D(payload) << 8 ) | LSB2D(payload);
-	vehicle.eng_status		= (Tst_bits(LSB3D( payload ), 1));
+	vehicle.eng_status		= LSB3D( payload ); //(Tst_bits(LSB3D( payload ), 0x80));
 }
 
 void pwm_request(uint64_t payload){
@@ -109,10 +109,10 @@ void can_thread(void* pvParameters){
 			//if new messages grab data from rest of mailboxes
 			status = can_mailbox_get_status(PDU_CAN,  ctz(REC_MB));
 			if ((status & CAN_MSR_MRDY) == CAN_MSR_MRDY)
-			{
+				{
 				can_mailbox_read(PDU_CAN, &can_mailbox[ctz(REC_MB)]);
 				handle_CAN(can_mailbox[ctz(REC_MB)]);
-			}
+				}
 			
 
 			

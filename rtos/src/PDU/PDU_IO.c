@@ -11,9 +11,7 @@
 void reset_line_handler(uint32_t id, uint32_t mask){
 	printf("RESET\r");
 	all_off();
-	for(uint8_t index = 0; index < NUM_HC_CHANNEL; index++){
-		pwm_channel_disable(PDU_PWM, pwm_assignment[index]);
-		}
+	
 	delay_ms( FAULT_LATCH_TIME_MS_LC * 50 );
 	NVIC_SystemReset();
 	}
@@ -22,6 +20,11 @@ void reset_line_handler(uint32_t id, uint32_t mask){
 void all_off(void){
 	enable_mask = 0;
 	set_enable(PDU_ENABLES_PORTD_MASK, PDU_OFF_STATE );
+#ifdef PDU_PWM
+	for(uint8_t index = 0; index < NUM_HC_CHANNEL; index++){
+		pwm_channel_disable(PDU_PWM, pwm_assignment[index]);
+		}
+#endif
 	}
 
 /*

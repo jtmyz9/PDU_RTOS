@@ -32,6 +32,9 @@
 #define PDU_CHANNEL_0_OFFSET	24 
 #define PDU_ENABLES_PORTD_MASK	((1<<NUM_LC_CHANNEL) - 1	) << PDU_CHANNEL_0_OFFSET	//generate bitmask for PORTD enable
 
+#define PDU_MULTIPLEXER_EN		PDU_MULTIPLEXER_iopins[0]
+#define PDU_MULTIPLEXER_MASK	PDU_MULTIPLEXER_iopins[1] | PDU_MULTIPLEXER_iopins[2] | PDU_MULTIPLEXER_iopins[3] 
+
 
 /************************************************************************/
 /* PWM Defintions                                                       */
@@ -74,8 +77,8 @@ static const voltage_lvl_t pwm_voltage_levels[NUM_VOLTAGE_LVL] = {
 static const uint8_t pwm_staturation_limits[NUM_VOLTAGE_LVL] = {
 	0,
 	25,
-	50,
 	75,
+	PWM_DUTY_CYCLE_SATURATION_LIMIT,
 	PWM_DUTY_CYCLE_SATURATION_LIMIT,
 	PWM_DUTY_CYCLE_SATURATION_LIMIT,
 	PWM_DUTY_CYCLE_SATURATION_LIMIT
@@ -130,8 +133,7 @@ typedef enum {
 typedef enum{
 	startup = 0,
 	run		= 1,
-	stop	= 2,
-	
+	stop	= 2,	
 	crank	= 3
 	}engine_state;
 

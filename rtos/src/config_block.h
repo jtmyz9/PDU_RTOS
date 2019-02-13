@@ -71,7 +71,7 @@ typedef enum {
 * This determines which channels will be enabled at startup and in
 * complicated error recovery modes defined later
 */
-#define PDU_DEFAULT_MASK		( (1<<ECU) | (1<<DATA) | (1<<GEN_5V) | (1<<GEN_12V) )
+#define PDU_DEFAULT_MASK		0 //( (1<<ECU) | (1<<DATA) | (1<<GEN_5V) | (1<<GEN_12V) )
 #define PDU_TIMEOUT_MASK		((1<<ECU) | (1<<DATA))
 //At a later date might be able to remove ECU_MASK from this list, make a "run" relay in ECU that toggles its own PDU bit
 #define PDU_NON_ECU_MASK		PDU_DEFAULT_MASK
@@ -84,7 +84,7 @@ typedef enum {
 /************************************************************************/
 
 /** PWM frequency in Hz */
-#define PDU_PWM_FREQUENCY			100
+#define PDU_PWM_FREQUENCY			100	//oof
 /** Period value of PWM output waveform */
 #define PDU_PERIOD_VALUE			100
 /** Initial duty cycle value */
@@ -122,6 +122,10 @@ static const uint32_t curr_limits[NUM_PDU_CHANNEL] = {
 	
 };
 
+/************************************************************************/
+/* AFEC Config                                                                     */
+/************************************************************************/
+#define PDU_MIN_OFF_STATE_V		10
 
 /*
 * AFEC Symbolic Names for each channel
@@ -136,10 +140,11 @@ static const uint32_t curr_limits[NUM_PDU_CHANNEL] = {
 #define HA_2_TEMP			AFEC_CHANNEL_10
 #define HA_3_TEMP			AFEC_CHANNEL_11
 #define HA_4_TEMP			AFEC_CHANNEL_6
-
+#define HA_VOLTAGE_SENSE	AFEC_CHANNEL_4
 
 #define BATT_MONITOR		AFEC_CHANNEL_12
 #define SUPPLY_MONITOR		AFEC_CHANNEL_13
+#define BSPD_MONITOR		AFEC_CHANNEL_5
 #define NUM_SUPPLY_MONITOR	2
 
 //AFEC1 mappings
@@ -179,7 +184,7 @@ static const enum afec_channel_num LC_AFEC_channel_list[NUM_LC_CHANNEL/ 2] = {
 
 static const enum afec_channel_num supply_monitor_list[NUM_SUPPLY_MONITOR] = {
 	BATT_MONITOR,
-	AFEC_CHANNEL_13
+	SUPPLY_MONITOR
 	};
 
 /************************************************************************/
@@ -254,6 +259,14 @@ static const ioport_pin_t PDU_digital_iopoins[NUM_DIGITAL_IO]={
 	PIO_PD8,
 	PIO_PD9
 	
+};
+
+//IOpins for Vsense multiplexer, we assume index 0 is enable pin
+static const ioport_pin_t PDU_MULTIPLEXER_iopins[]={
+	PIO_PC4_IDX,
+	PIO_PC5_IDX,
+	PIO_PC6_IDX,
+	PIO_PC7_IDX
 };
 
 //IOPins symbolic names

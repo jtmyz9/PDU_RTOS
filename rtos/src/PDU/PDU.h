@@ -183,6 +183,8 @@ void LC_thread	(void* pvParameters );
 */
 void system_task(void* pvParameters);
 void get_system_voltages(uint16_t* batt_volt, uint16_t* supply_volt);
+//super secret cheaty sauce, no one but me should know this exists
+void monitor_BSPD(uint16_t* bspd_voltage);
 
 /*
 * Can Bus Threads and functions
